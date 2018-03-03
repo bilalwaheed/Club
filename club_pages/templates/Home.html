@@ -1,0 +1,325 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+	<ul class="anim-slider">
+
+		<!-- Slide No1 -->
+		<li class="anim-slide" style=" background-image:url('/static/images/slider1.png') !important;">
+			<h1 id="slider" style="display:none;"></h1>
+			<h2 id="plugin"></h2>
+			<h3 id="license"></h3>
+			<h4 id="version"></h4>
+		</li>
+
+
+		<!-- Slide No2 -->
+		<li class="anim-slide"style=" background-image:url('/static/images/slider2.png') !important;">
+			<h3 id="todo"></h3>
+
+			<h3 id="bounce"></h3>
+			<h4 id="bounceUp"></h4>
+			<h4 id="bounceRight"></h4>
+
+			<h3 id="fade"></h3>
+			<h4 id="fadeUp"></h4>
+			<h4 id="fadeDown"></h4>
+
+			<h3 id="rotate"></h3>
+			<h4 id="rotateRight"></h4>
+			<h4 id="rotateLeft"></h4>
+		</li>
+
+		<!-- Slide No3 -->
+		<li class="anim-slide" style="background-image:url('/static/images/slider3.png') !important;">
+            <img src="{% static 'images/demo1/css3.png' %}" alt="CSS3" id="css3" style="display:none;">
+			<img src="{% static 'images/demo1/html5.png' %}" alt="HTML5" id="html5" style="display:none;">
+			<img src="{% static 'images/demo1/jquery.png' %}" alt="jQuery" id="jquery" style="display:none;">
+			<img src="{% static 'images/demo1/modernizr.png' %}" alt="Modernizr" id="modernizr" style="display:none;">
+			<h2 id="animatecss" style="display:none;">Animate.css</h2>
+		</li>
+
+		<!-- Arrows -->
+		<nav class="anim-arrows">
+			<span class="anim-arrows-prev"></span>
+			<span class="anim-arrows-next"></span>
+		</nav>
+		<!-- Dynamically created dots -->
+
+	</ul>
+
+
+		<!-- credits
+		<p id="credits">Made with love by <a href="https://github.com/Vchouliaras">Vchouliaras</a></p>
+		<a href="https://github.com/Vchouliaras/jquery.animateSlider.js">
+			<img id="github-logo" src="{% static 'images/github-cat.png' %}" alt="Github Cat">
+		</a>
+		-->
+
+
+
+
+		<!-- Bower Depedencies -->
+        <script src="{% static 'js/custom.js' %}" type="text/javascript"></script>
+		<script src="{% static 'js/jquery.min.js' %}"></script>
+		<script src="{% static 'js/modernizr.js' %}"></script>
+		<!-- Load the plugin -->
+		<script src="{% static 'js/jquery.animateSlider.js' %}"></script>
+
+		<script>
+		 $(".anim-slider").animateSlider(
+		 	{
+		 		autoplay	:true,
+		 		interval	:5000,
+		 		animations 	:
+				{
+					0	: 	//Slide No1
+					{
+						h1	:
+						{
+							show   	  : "bounceIn",
+							hide 	  : "flipOutX",
+							delayShow : "delay1s"
+	 					},
+	 					h2:
+	 					{
+	 						show 	  : "fadeInUpBig",
+							hide 	  : "fadeOutDownBig",
+							delayShow : "delay1-5s"
+	 					},
+	 					h3 	:
+	 					{
+							show   	  : "bounceInRight",
+							hide 	  : "fadeOutRightBig",
+							delayShow : "delay1-5s"
+	 					},
+	 					h4:
+	 					{
+	 						show 	  : "bounceInUp",
+							hide 	  : "fadeOutLeftBig",
+							delayShow : "delay2s"
+						}
+					},
+					1	: //Slide No2
+					{
+						"#todo":
+						{
+							show 		: "fadeIn",
+							hide 		: "fadeOut",
+							delayShow   : "delay0-5s"
+						},
+						"#bounce" 	:
+						{
+							show 	 	: "bounceIn",
+							hide 	 	: "bounceOut",
+							delayShow 	: "delay2s"
+						},
+						"#bounceUp":
+						{
+							show 	 	: "bounceInDown",
+							hide 	 	: "bounceOutLeft",
+							delayShow 	: "delay2-5s"
+						},
+						"#bounceRight":
+						{
+							show 	 	: "bounceInRight",
+							hide 	 	: "bounceOutRight",
+							delayShow 	: "delay3s"
+						},
+						"#fade" :
+						{
+							show 	 	: "fadeInLeft",
+							hide 	 	: "fadeOutLeft",
+							delayShow 	: "delay3-5s"
+						},
+						"#fadeUp":
+						{
+							show 	 	: "fadeInUpBig",
+							hide 	 	: "fadeOutUpBig",
+							delayShow 	: "delay4s"
+						},
+						"#fadeDown":
+						{
+							show 	 	: "fadeInDownBig",
+							hide 	 	: "fadeOutDownBig",
+							delayShow 	: "delay4-5s"
+						},
+						"#rotate" :
+						{
+							show 	 	: "rotateIn",
+							hide 	 	: "rotateOut",
+							delayShow 	: "delay5-5s"
+						},
+						"#rotateRight" :
+						{
+							show 	 	: "rotateInUpRight",
+							hide 	 	: "rotateOutDownRight",
+							delayShow 	: "delay6s"
+						},
+						"#rotateLeft" :
+						{
+							show 	 	: "rotateInUpLeft",
+							hide 	 	: "rotateOutDownLeft",
+							delayShow 	: "delay6-5s"
+						}
+					},
+					2	: //Slide No3
+					{
+						"img#css3"	:
+						{
+							show 	  : "flipInY",
+							hide 	  : "flipOutY",
+							delayShow : "delay0-5s"
+						},
+						"img#html5"	:
+						{
+							show 	  : "flipInY",
+							hide 	  : "flipOutY",
+							delayShow : "delay0-5s"
+						},
+						"img#jquery"  :
+						{
+							show 	  : "bounceIn",
+							hide 	  : "flipOutY",
+							delayShow : "delay1-5s"
+						},
+						"img#modernizr" :
+						{
+							show 	  : "rollIn",
+							hide 	  : "flipOutY",
+							delayShow : "delay2s"
+						},
+						"#animatecss"	:
+						{
+							show 	  : "lightSpeedIn",
+							hide 	  : "flipOutY",
+							delayShow : "delay2-5s"
+						}
+					}
+				}
+		 	});
+		</script>
+
+<div class="container title-bottom-section">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="basic-page--text">
+                <p>Welcome to the Sussex Cricket website. The site is packed full of brand new features and has been designed to make keeping in touch with goings on at The 1st Central County Ground as easy as possible.</p>
+                <p>Whether you're finding us for the first time, or a welcomed returning supporter, we hope you enjoy exploring the new site and please check back regularly as we will be unveiling new and exciting content throughout the year.</p>
+
+            </div>
+
+        </div>
+            <div class="col-md-2"></div>
+    </div>
+</div>
+
+<section class="lg-panel lg-panel__left">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="basic-page--text-img">
+                     <img src="{% static 'images/Membership1.png' %}" alt="My image"/>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="uper-img">
+                    <img src="{% static 'images/blast1.jpg' %}" alt="My image"/>
+                </div>
+                <div class="lower-img">
+                    <img src="{% static 'images/blast2.jpg' %}" alt="My image"/>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container">
+	<div class="section--sep section--sep__sm"></div>
+</div>
+<section class="lg-panel lg-panel__left">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="basic-page--text-img">
+                     <img src="{% static 'images/blast1.jpg' %}" alt="My image"/>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="uper-img">
+                    <img src="{% static 'images/blast2.jpg' %}" alt="My image"/>
+                </div>
+            </div>
+			<div class="col-md-4">
+                <div class="uper-img">
+                    <img src="{% static 'images/blast1.jpg' %}" alt="My image"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container">
+	<div class="section--sep section--sep__sm"></div>
+</div>
+<section class="latest-news hidden-sm">
+    <div class="container">
+        <div class="latest-news--title-holder">
+            <h2 class="latest-news--title">Latest News</h2>
+        </div>
+    </div>
+    <div class="lastest-news-story">
+       <div class="container">
+           <div class="row">
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="latest-news--story-img"><img src="{% static 'images/n1.jpg' %}" alt="My image"/></div>
+                </div>
+                <div class="col-md-8 col-sm-6 col-xs-12">
+                    <div class="latest-news--story-title">Blast from the past: Ed Joyce and Chris Nash</div>
+                    <div class="latest-news--story-date">2 Mar 2018</div>
+                    <div class="latest-news--story-text">
+                        Tickets for all seven of our home Vitality Blast fixtures went on sale yesterday, and today sees us continue our Blast from the past feature.
+                    </div>
+                    <a class="latest-news--story-link" href="#">Read More</a>
+                </div>
+            </div>
+       </div>
+    </div>
+    <div class="lastest-news-story">
+       <div class="container">
+           <div class="row">
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="latest-news--story-img"><img src="{% static 'images/n1.jpg' %}" alt="My image"/></div>
+                </div>
+                <div class="col-md-8 col-sm-6 col-xs-12">
+                    <div class="latest-news--story-title">Blast from the past: Ed Joyce and Chris Nash</div>
+                    <div class="latest-news--story-date">2 Mar 2018</div>
+                    <div class="latest-news--story-text">
+                        Tickets for all seven of our home Vitality Blast fixtures went on sale yesterday, and today sees us continue our Blast from the past feature.
+                    </div>
+                    <a class="latest-news--story-link" href="#">Read More</a>
+                </div>
+            </div>
+       </div>
+    </div>
+    <div class="lastest-news-story">
+       <div class="container">
+           <div class="row">
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="latest-news--story-img"><img src="{% static 'images/n1.jpg' %}" alt="My image"/></div>
+                </div>
+                <div class="col-md-8 col-sm-6 col-xs-12">
+                    <div class="latest-news--story-title">Blast from the past: Ed Joyce and Chris Nash</div>
+                    <div class="latest-news--story-date">2 Mar 2018</div>
+                    <div class="latest-news--story-text">
+                        Tickets for all seven of our home Vitality Blast fixtures went on sale yesterday, and today sees us continue our Blast from the past feature.
+                    </div>
+                    <a class="latest-news--story-link" href="#">Read More</a>
+                </div>
+            </div>
+       </div>
+    </div>
+</section>
+<div class="container">
+	<div class="section--sep section--sep__sm"></div>
+</div>
+{% endblock content %}

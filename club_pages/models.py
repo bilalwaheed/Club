@@ -1,10 +1,9 @@
-import datetime
-
 from django.db import models
 
-def upload_player_image(instance, filename):
 
+def upload_player_image(instance, filename):
     return '{}/{}'.format("Players", '%s.jpg')
+
 
 class Player(models.Model):
     name = models.CharField(max_length=250, default='SOME STRING')
@@ -16,15 +15,18 @@ class Player(models.Model):
     bowling_style = models.CharField(max_length=250)
     player_type = models.CharField(max_length=250)
     image = models.ImageField(upload_to=upload_player_image, null=True, blank=True)
+
     # team = models.ForeignKey(Team, on_delete=models.CASCADE)
 
     def __str__(self):
         return str(self.id)
 
+
 class Club(models.Model):
     name = models.CharField(max_length=250)
     city = models.CharField(max_length=250)
     club_history = models.CharField(max_length=250)
+
 
 class Team(models.Model):
     name = models.CharField(max_length=250)
@@ -41,9 +43,11 @@ class Member(models.Model):
     name = models.CharField(max_length=250)
     Email = models.EmailField()
 
+
 class Tournament(models.Model):
     name = models.CharField(max_length=250)
     title = models.CharField(max_length=250)
+
 
 class Fixture(models.Model):
     time = models.TimeField()
@@ -53,12 +57,8 @@ class Fixture(models.Model):
     venue = models.CharField(max_length=250)
     tournament = models.ForeignKey(Tournament, on_delete=models.CASCADE)
 
+
 class LatestNews(models.Model):
     title = models.CharField(max_length=250)
     description = models.CharField(max_length=250)
     image = models.ImageField()
-
-
-
-
-

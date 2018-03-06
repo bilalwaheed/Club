@@ -1,7 +1,7 @@
 .fixed-top
 {
     background-color: #0C4DA2 !important;
-    position: relative !important;
+    position: fixed !important;
         height: 80px !important;
 }
 .top-menu
@@ -49,7 +49,8 @@ background-color: #0C4DA2 !important;
 }
 .title-bar-bg
 {
-background-image:url('/static/images/members.png') !important;
+margin-top:80px !important;
+background-image:url('/static/images/members.jpg') !important;
 height:500px;
 }
 .title
@@ -64,10 +65,10 @@ color: #0C4DA2 !important
 .navbar-dark .navbar-nav .nav-link
 {
     color: white !important;
-    font-size: 20px !important;
+    font-size: 17px !important;
     font-weight: bold !important;
     border-right: 1px solid white;
-    padding-right: 25px !important;
+    padding-right: 23px !important;
     padding-left: 35px !important;
 }
 .mb-3 .title a
@@ -141,7 +142,94 @@ color: #00aeef;
 {
 margin-bottom: 40px;
 }
-
+.player-section
+{
+    margin-top: 50px !important;
+}
+.link-section
+{
+    background-color: #0C4DA2;
+    width: 270px;
+    color: white;
+    padding: 5px 0px 5px 5px;
+}
+.results-result--date
+{
+    padding-left: 15px;
+    font-size: 1.125rem;
+    color: #0c4da2;
+    font-weight: bold;
+}
+.results-result--text
+{
+    padding: 10px 0 10px 15px;
+    font-size: 0.875rem;
+    color: #848484;
+}
+.results-result--team-name
+{
+    padding-left: 10px;
+    font-size: 2.25rem;
+    color: #0c4da2;
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+.results-result--team-logo img
+{
+    margin-top: 12px;
+    width: 56px;
+    height: 48px;
+    float: left;
+}
+.fixture-strip--
+{
+    padding: 25px 0 15px;
+    border: 1px solid #d7d7d7;
+}
+.player--name
+{
+    font-size: 21px;
+    padding: 10px 30px;
+    background-color: #c10000;
+    color: white;
+    font-weight: bold;
+    color: white;
+    font-weight: bold;
+    width: 270px;
+}
+.player .matchHeight
+{
+    border: 1px solid;
+    padding: 20px 20px;
+    width: 270px;
+}
+.player--info-text
+{
+    color: #c10000;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+.player--info-text span
+{
+    color: black;
+}
+.players--holder .player .player--social a
+{
+    width: 100%;
+    text-align: center;
+        padding: 1px 33px 5px 34px;
+    border-right: 1px solid black;
+    /* border-top: 1px solid black; */
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    /* border-left-color: transparent; */
+    font-size: 1.5625rem;
+    color: #0c4da2;
+}
+.players--holder .new-mrg .player
+{
+padding-bottom: 50px;
+}
 
 @media only screen and (max-width: 768px) {
 .flex-center

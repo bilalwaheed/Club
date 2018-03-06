@@ -1,20 +1,38 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block content %}
-<div class="wide title-bar-bg"style="background-image:url('/static/images/about.jpg') !important;">
+<div class="wide title-bar-bg"style="background-image:url('/static/images/about1.jpg') !important;">
 <div class="container title-bar">
     <div class="container">
         <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-8">
                 <div class="text-center title">
-                    <h1 class="title-heading">ABOUT US</h1>
+                    <h1 class="title-heading"></h1>
                 </div>
             </div>
             <div class="col-md-2"></div>
         </div>
     </div>
 </div><!-- /.container -->
+</div>
+
+<div class="container title-bottom-section">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="basic-page--text">
+                <p>We will be launching a brand new Members area in March 2018, ready for the build&nbsp;up to the start of what promises to be one of the most exciting seasons to date.</p>
+                <p>From here, you'll be able to access the new LIVE streaming and video on demand service, see highlights and extended interviews, as well as behind the scenes footage and enter monthly draws and competitions.</p>
+                <p>If you are a member, then don't fear - we will be in touch when the area is ready.</p>
+                <p><strong>If you are not a member then you still have time to purchase by clicking the image below</strong></p>
+            </div>
+            <div class="basic-page--text-img">
+                 <img src="{% static 'images/membership.png' %}" alt="My image"/>
+            </div>
+        </div>
+            <div class="col-md-2"></div>
+    </div>
 </div>
 
 {% endblock content %}

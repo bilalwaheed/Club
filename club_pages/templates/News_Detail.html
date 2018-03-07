@@ -21,23 +21,19 @@
 <section class="latest-news hidden-sm">
     <div class="container">
         <div class="latest-news--title-holder">
-            <h2 class="latest-news--title">Player Detail</h2>
+            <h2 class="latest-news--title">News Detail</h2>
         </div>
     </div>
     <div class="lastest-news-story">
        <div class="container">
            <div class="row">
                 <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="latest-news--story-img"><img src="{{player_detail.image.url}}" alt="My image"/></div>
+                <div class="latest-news--story-img"><img src="{{news_detail.image.url}}" alt="My image"/></div>
                 </div>
                 <div class="col-md-8 col-sm-6 col-xs-12">
-                    <div class="latest-news--story-title">{{player_detail.name}}</div>
-                    <div class="latest-news--story-date"><b>ODI Matches: </b>{{player_detail.odi_matches}}</div>
-                    <div class="latest-news--story-date"><b>Test Matches: </b>{{player_detail.test_matches}} </div>
-                    <div class="latest-news--story-date"><b>Total Runs: </b>{{player_detail.total_runs}} </div>
-                    <div class="latest-news--story-date"><b>Total Wickets: </b>{{player_detail.total_wickets}} </div>
+                    <div class="latest-news--story-title">{{news_detail.title}}</div>
                     <div class="latest-news--story-text">
-                        {{player_detail.description}}
+                        {{news_detail.description}}
                     </div>
 
                 </div>

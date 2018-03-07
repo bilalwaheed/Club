@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block content %}
-	<ul class="anim-slider">
+	<ul class="anim-slider" id="anim-slider">
 
 		<!-- Slide No1 -->
 		<li class="anim-slide" style=" background-image:url('/static/images/home-slider.jpg') !important;">
@@ -40,8 +40,12 @@
 
 		<!-- Arrows -->
 		<nav class="anim-arrows">
-			<span class="anim-arrows-prev"></span>
-			<span class="anim-arrows-next"></span>
+			<span class="anim-arrows-prev">
+				<i class="fa fa-angle-left fa-3x"></i>
+			</span>
+			<span class="anim-arrows-next">
+				<i class="fa fa-angle-right fa-3x"></i>
+			</span>
 		</nav>
 		<!-- Dynamically created dots -->
 
@@ -66,10 +70,12 @@
 		<script src="{% static 'js/jquery.animateSlider.js' %}"></script>
 
 		<script>
+
 		 $(".anim-slider").animateSlider(
 		 	{
-		 		autoplay	:true,
-		 		interval	:5000,
+
+		 		 autoplay	:true,
+		 		 interval	:1000,
 		 		animations 	:
 				{
 					0	: 	//Slide No1

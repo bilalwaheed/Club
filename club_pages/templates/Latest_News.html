@@ -22,74 +22,28 @@
             <h2 class="latest-news--title">Latest News</h2>
         </div>
     </div>
+     {% for new in news %}
     <div class="lastest-news-story">
+
        <div class="container">
            <div class="row">
                 <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="latest-news--story-img"><img src="{% static 'images/n1.jpg' %}" alt="My image"/></div>
+                <div class="latest-news--story-img"><img src="{{new.image.url}}" alt="My image"/></div>
                 </div>
                 <div class="col-md-8 col-sm-6 col-xs-12">
-                    <div class="latest-news--story-title">Blast from the past: Ed Joyce and Chris Nash</div>
+                    <div class="latest-news--story-title">{{new.title}}</div>
                     <div class="latest-news--story-date">2 Mar 2018</div>
                     <div class="latest-news--story-text">
-                        Tickets for all seven of our home Vitality Blast fixtures went on sale yesterday, and today sees us continue our Blast from the past feature.
+                        {{new.description}}
                     </div>
-                    <a class="latest-news--story-link" href="#">Read More</a>
+                    <a class="latest-news--story-link" href="{% url 'news_detail' new.id %}">Read More</a>
                 </div>
             </div>
        </div>
+
     </div>
-    <div class="lastest-news-story">
-       <div class="container">
-           <div class="row">
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="latest-news--story-img"><img src="{% static 'images/n1.jpg' %}" alt="My image"/></div>
-                </div>
-                <div class="col-md-8 col-sm-6 col-xs-12">
-                    <div class="latest-news--story-title">Blast from the past: Ed Joyce and Chris Nash</div>
-                    <div class="latest-news--story-date">2 Mar 2018</div>
-                    <div class="latest-news--story-text">
-                        Tickets for all seven of our home Vitality Blast fixtures went on sale yesterday, and today sees us continue our Blast from the past feature.
-                    </div>
-                    <a class="latest-news--story-link" href="#">Read More</a>
-                </div>
-            </div>
-       </div>
-    </div>
-    <div class="lastest-news-story">
-       <div class="container">
-           <div class="row">
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="latest-news--story-img"><img src="{% static 'images/n1.jpg' %}" alt="My image"/></div>
-                </div>
-                <div class="col-md-8 col-sm-6 col-xs-12">
-                    <div class="latest-news--story-title">Blast from the past: Ed Joyce and Chris Nash</div>
-                    <div class="latest-news--story-date">2 Mar 2018</div>
-                    <div class="latest-news--story-text">
-                        Tickets for all seven of our home Vitality Blast fixtures went on sale yesterday, and today sees us continue our Blast from the past feature.
-                    </div>
-                    <a class="latest-news--story-link" href="#">Read More</a>
-                </div>
-            </div>
-       </div>
-    </div>
-    <div class="lastest-news-story">
-       <div class="container">
-           <div class="row">
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="latest-news--story-img"><img src="{% static 'images/n1.jpg' %}" alt="My image"/></div>
-                </div>
-                <div class="col-md-8 col-sm-6 col-xs-12">
-                    <div class="latest-news--story-title">Blast from the past: Ed Joyce and Chris Nash</div>
-                    <div class="latest-news--story-date">2 Mar 2018</div>
-                    <div class="latest-news--story-text">
-                        Tickets for all seven of our home Vitality Blast fixtures went on sale yesterday, and today sees us continue our Blast from the past feature.
-                    </div>
-                    <a class="latest-news--story-link" href="#">Read More</a>
-                </div>
-            </div>
-       </div>
-    </div>
+    {% endfor %}
+
 </section>
 
 

@@ -15,6 +15,11 @@ class Player(models.Model):
     bowling_style = models.CharField(max_length=250)
     player_type = models.CharField(max_length=250)
     image = models.ImageField(upload_to=upload_player_image, null=True, blank=True)
+    odi_matches = models.IntegerField(default=0)
+    test_matches = models.IntegerField(default=0)
+    total_runs = models.IntegerField(default=0)
+    total_wickets = models.IntegerField(default=0)
+    description = models.CharField(max_length=1000, default='SOME STRING')
 
     # team = models.ForeignKey(Team, on_delete=models.CASCADE)
 
@@ -61,4 +66,5 @@ class Fixture(models.Model):
 class LatestNews(models.Model):
     title = models.CharField(max_length=250)
     description = models.CharField(max_length=250)
-    image = models.ImageField()
+    image = models.ImageField(upload_to=upload_player_image, null=True, blank=True)
+

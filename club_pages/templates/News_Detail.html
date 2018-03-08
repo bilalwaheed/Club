@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<div class="wide title-bar-bg" style="background-image:url('/static/images/detail.jpg') !important;">
+<div class="container title-bar">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="text-center title">
+                    <h1 class="title-heading"></h1>
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+</div><!-- /.container -->
+</div>
+
+<section class="latest-news hidden-sm">
+    <div class="container">
+        <div class="latest-news--title-holder">
+            <h2 class="latest-news--title">News Detail</h2>
+        </div>
+    </div>
+    <div class="lastest-news-story">
+       <div class="container">
+           <div class="row">
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="latest-news--story-img"><img src="{{news_detail.image.url}}" alt="My image"/></div>
+                </div>
+                <div class="col-md-8 col-sm-6 col-xs-12">
+                    <div class="latest-news--story-title">{{news_detail.title}}</div>
+                    <div class="latest-news--story-text">
+                        {{news_detail.description}}
+                    </div>
+
+                </div>
+            </div>
+       </div>
+    </div>
+
+</section>
+
+{% endblock content %}

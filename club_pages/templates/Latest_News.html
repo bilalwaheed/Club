@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+<div class="wide title-bar-bg" style="background-image:url('/static/images/news.jpg') !important;">
+<div class="container title-bar">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="text-center title">
+                    <h1 class="title-heading"></h1>
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+</div><!-- /.container -->
+</div>
+<section class="latest-news hidden-sm">
+    <div class="container">
+        <div class="latest-news--title-holder">
+            <h2 class="latest-news--title">Latest News</h2>
+        </div>
+    </div>
+     {% for new in news %}
+    <div class="lastest-news-story">
+
+       <div class="container">
+           <div class="row">
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="latest-news--story-img"><img src="{{new.image.url}}" alt="My image"/></div>
+                </div>
+                <div class="col-md-8 col-sm-6 col-xs-12">
+                    <div class="latest-news--story-title">{{new.title}}</div>
+                    <div class="latest-news--story-date">2 Mar 2018</div>
+                    <div class="latest-news--story-text">
+                        {{new.description}}
+                    </div>
+                    <a class="latest-news--story-link" href="{% url 'news_detail' new.id %}">Read More</a>
+                </div>
+            </div>
+       </div>
+
+    </div>
+    {% endfor %}
+
+</section>
+
+
+{% endblock content %}

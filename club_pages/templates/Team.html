@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+<div class="wide title-bar-bg" style="background-image:url('/static/images/team.jpg') !important;">
+<div class="container title-bar">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="text-center title">
+                    <h1 class="title-heading"></h1>
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+</div><!-- /.container -->
+</div>
+
+<section class="lg-panel player-section">
+    <div class="container players--holder">
+        <div class="row new-mrg">
+            {% for player in players %}
+            <div class="col-md-4 player">
+                <div class="img-section">
+                   <!--<a href="/club_pages/detail"> <img src="{% static 'images/p3.jpg' %}" alt="My image"/> </a>-->
+                   <a href="{% url 'detail' player.id %}"><img src="{{player.image.url}}"> </a>
+                </div>
+                <div class="player--name">
+                    {{ player.name }}
+                </div>
+                <div class="player--info matchHeight">
+                    <div class="player--info-text">    <strong>DOB:</strong><span><time datetime="1994-07-08T12:00:00Z">{{player.dob}}</time>
+                    </span></div>
+                    <div class="player--info-text">    <strong>Birthplace: </strong><span>{{ player.birth_place }}</span></div>
+                    <div class="player--info-text">    <strong>Squad Number: </strong><span>{{ player.squad_no }}</span></div>
+                    <div class="player--info-text">    <strong>Bowling Style: </strong><span>{{ player.bowling_style }} </span></div>
+                    <div class="player--info-text">    <strong>Batting Style: </strong><span>{{ player.batting_style }}</span></div>
+
+                </div>
+                <div class="player--social">
+                    <a target="_blank" href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    <a target="_blank" href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    <a target="_blank" href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                </div>
+
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+
+
+
+{% endblock content %}

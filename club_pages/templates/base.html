@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<!--{% load staticfiles %}-->
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+      <!-- Plugin css -->
+      <link rel="stylesheet" href="{% static 'css/jquery.animateSlider.css' %}">
+      <!-- Demo css -->
+      <link rel="stylesheet" href="{% static 'css/font-awesome.css' %}">
+      <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+      <link rel="stylesheet" href="{% static 'css/demo1.css' %} ">
+
+
+      <!--{% load static %} -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Logo Nav - Start Bootstrap Template</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+    <!-- Bootstrap core CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+
+    <!-- Custom styles for this template -->
+    <link href="css/logo-nav.css" rel="stylesheet" />
+      <!-- Bootstrap core js -->
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
+  </head>
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top top-menu" style="background-color: #0C4DA2 !important;">
+      <div class="container">
+
+        <a class="navbar-brand" href="#">
+
+            <img src="{% static 'images/transparent logo.png' %}" alt="My image"/>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="http://127.0.0.1:8000/club_pages/home">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/club_pages/about-us">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/club_pages/fixtures_results">Fixtures & Results</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/club_pages/contact-us">Contact Us</a>
+            </li>
+              <li class="nav-item">
+              <a class="nav-link" href="/club_pages/latest_news">Latest News</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/club_pages/members">Members</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/club_pages/team">Team</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    {% block content %}
+
+    {% endblock content %}
+    <!-- /.container -->
+
+    <!-- uper fotter -->
+
+
+      <!--Footer-->
+      <footer class="uper-page-footer font-small indigo pt-0">
+
+          <!--Footer Links-->
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-4"></div>
+                  <div class="col-md-4">
+                      <div class="footer--sponsor-title">Major Sponsors</div>
+                  </div>
+                  <div class="col-md-4"></div>
+              </div>
+              <!--First row-->
+              <div class="row">
+
+                  <!--First column-->
+                  <div class="col-md-2"></div>
+                  <div class="col-md-8">
+
+                      <div class="mb-5 flex-center">
+
+                          <!--Facebook-->
+                          <a class="fb-ic"><img src="{% static 'images/s1.jpg' %}" alt="My image"/></a>
+                          <!--Twitter-->
+                          <a class="tw-ic"><img src="{% static 'images/s2.jpg' %}" alt="My image"/></a>
+                          <!--Google +-->
+                          <a class="gplus-ic"><img src="{% static 'images/s3.jpg' %}" alt="My image"/></a>
+                          <!--Linkedin-->
+                          <a class="li-ic"><img src="{% static 'images/s4.jpg' %}" alt="My image"/></a>
+                          <!--Instagram-->
+                          <a class="ins-ic"><img src="{% static 'images/s5.jpg' %}" alt="My image"/></a>
+                          <!--Pinterest-->
+
+                      </div>
+                  </div>
+                  <div class="col-md-2"></div>
+                  <!--/First column-->
+              </div>
+              <div class="section--sep"></div>
+              <!--/First row-->
+          </div>
+          <!--/Footer Links-->
+
+
+      </footer>
+      <!--/Footer-->
+
+
+    <!-- end uper-fotter -->
+    <!-- Footer area -->
+
+      <!--Footer-->
+      <footer class="page-footer font-small indigo pt-0">
+
+          <!--Footer Links-->
+          <div class="container">
+
+              <!--Grid row-->
+              <div class="row pt-5 mb-3 text-center d-flex justify-content-center" style="    padding-top: 0rem!important;">
+
+                  <!--Grid column-->
+                  <div class="col-md-2 mb-3">
+                      <h6 class="title font-weight-bold"><a href="#!">About us</a></h6>
+                  </div>
+                  <!--Grid column-->
+
+                  <!--Grid column-->
+                  <div class="col-md-2 mb-3">
+                      <h6 class="title font-weight-bold"><a href="#!">Products</a></h6>
+                  </div>
+                  <!--Grid column-->
+
+                  <!--Grid column-->
+                  <div class="col-md-2 mb-3">
+                      <h6 class="title font-weight-bold"><a href="#!">Awards</a></h6>
+                  </div>
+                  <!--Grid column-->
+
+                  <!--Grid column-->
+                  <div class="col-md-2 mb-3">
+                      <h6 class="title font-weight-bold"><a href="#!">Help</a></h6>
+                  </div>
+                  <!--Grid column-->
+
+                  <!--Grid column-->
+                  <div class="col-md-2 mb-3">
+                      <h6 class="title font-weight-bold"><a href="#!">Contact</a></h6>
+                  </div>
+                  <!--Grid column-->
+
+              </div>
+              <!--Grid row-->
+
+              <hr class="rgba-white-light" style="margin: 0 15%;">
+
+              <!--Grid row-->
+              <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
+
+                  <!--Grid column-->
+                  <div class="col-md-8 col-12 mt-5">
+                      <p style="line-height: 1.7rem;color:white !important;">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+                          totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae
+                          vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit
+                          aut fugit, sed quia consequuntur.</p>
+
+                  </div>
+                  <!--Grid column-->
+
+              </div>
+              <!--Grid row-->
+
+              <hr class="clearfix d-md-none rgba-white-light" style="margin: 10% 15% 5%;">
+
+              <!--Grid row-->
+
+              <!--Grid row-->
+
+          </div>
+          <!--/Footer Links-->
+
+          <!--Copyright-->
+          <div class="footer-copyright py-3 text-center">
+              <div class="container-fluid">
+                  © 2016 Copyright: <a href="https://mdbootstrap.com/material-design-for-bootstrap/"> MDBootstrap.com </a>
+              </div>
+          </div>
+          <!--/Copyright-->
+
+      </footer>
+      <!--/Footer-->
+
+
+    <!-- end footer area -->
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+  </body>
+
+</html>

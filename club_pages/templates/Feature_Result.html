@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+<div class="wide title-bar-bg" style="background-image:url('/static/images/fixtures.jpg') !important;">
+<div class="container title-bar">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="text-center title">
+                    <h1 class="title-heading"></h1>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div><!-- /.container -->
+</div>
+<section class="latest-news hidden-sm">
+    <div class="container">
+        <div class="latest-news--title-holder">
+            <h2 class="latest-news--title">FIXTURES & RESULTS</h2>
+        </div>
+        {% for fixture in fixtures %}
+            <div class="results row revealup fixture-strip--">
+
+            <div class="results-result col-md-8 col-sm-12 col-xs-12 col-sm-12">
+                <div class="results-result--info">
+                    <div class="results-result--date">
+                        <time datetime="2018-03-29T10:00:00Z">{{fixture.date}}</time>
+                        - <time datetime="2018-03-29T11:00:00Z">{{fixture.time}}</time>
+
+                    </div>
+                    <div class="results-result--text">
+                        <span>2 Day Friendly</span>
+                        <span>- The 1st Central County Ground</span>
+                    </div>
+                </div>
+                <div class="results-result--team">
+                    <div class="results-result--team-logo">
+                        <img src="{% static 'images/sussex_cc_2018.png' %}" alt="My image"/>
+                    </div>
+                    <div class="results-result--team-name">
+                        {{fixture.team1.name}}
+                    </div>
+                    <div class="results-result--team-logo">
+                        <img src="{% static 'images/sussex_cc_2018.png' %}" alt="My image"/>
+                    </div>
+                    <div class="results-result--team-name">
+                        {{fixture.team2.name}}
+                    </div>
+                </div>
+            </div>
+            <div class="results-result col-md-4 col-sm-12 col-xs-12 col-sm-12">
+                <img src="{% static 'images/sussex_cc_2018.png' %}" alt="My image"/>
+            </div>
+
+        </div>
+        {% endfor %}
+
+
+
+    </div>
+
+
+
+</section>
+
+
+{% endblock content %}

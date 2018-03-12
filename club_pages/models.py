@@ -7,7 +7,7 @@ def upload_player_image(instance, filename):
 
 class Player(models.Model):
     name = models.CharField(max_length=250, default='SOME STRING')
-    dob = models.DateField()
+    dob = models.DateField(null=True)
     birth_place = models.CharField(max_length=250)
     squad_no = models.IntegerField()
     type = models.CharField(max_length=250)
@@ -56,7 +56,7 @@ class Tournament(models.Model):
 
 class Fixture(models.Model):
     time = models.TimeField()
-    date = models.DateField()
+    date = models.DateField(null=True)
     team1 = models.ForeignKey(Team, related_name='team1', on_delete=models.CASCADE)
     team2 = models.ForeignKey(Team, related_name='team2', on_delete=models.CASCADE)
     venue = models.CharField(max_length=250)

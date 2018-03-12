@@ -2,7 +2,7 @@
 {
     background-color: #0C4DA2 !important;
     position: fixed !important;
-        height: 80px !important;
+    height: 70px !important;
 }
 .top-menu
 {
@@ -169,7 +169,7 @@ margin-bottom: 40px;
 .results-result--team-name
 {
     padding-left: 10px;
-    font-size: 2.25rem;
+    font-size: 22px;
     color: #0c4da2;
     font-weight: bold;
     padding-bottom: 20px;

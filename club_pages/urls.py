@@ -7,7 +7,7 @@ from django.conf.urls.static import static
 from club_pages.views import members, about, ContactUsView
 
 urlpatterns = [
-    # ... the rest of your URLconf goes here ...
+
     path('index',index, name='index'),
     path('members', members.as_view(), name='members'),
     path('about-us', about.as_view(), name='about-us'),

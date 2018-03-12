@@ -8,18 +8,15 @@ from club_pages.models import Player, Fixture, LatestNews
 
 class ContactUsView(generic.TemplateView):
     template_name = 'ContactUs.html'
-    render_to_response(template_name)
 
 def index(request):
     return render(request,'index.html', {})
 
 class members(generic.TemplateView):
     template_name = 'Members.html'
-    render_to_response(template_name)
 
 class about(generic.TemplateView):
     template_name = 'About.html'
-    render_to_response(template_name)
 
 class fixtures_results(generic.TemplateView):
      model = Fixture
@@ -37,8 +34,13 @@ class latest_news(generic.TemplateView):
 
 
 class home(generic.TemplateView):
+    model = LatestNews
     template_name = 'Home.html'
-    render_to_response(template_name)
+    #render_to_response(template_name)
+    def get(self, request, *args, **kwargs):
+        news = LatestNews.objects.all()
+        return render(request, self.template_name, {'news': news})
+
 
 class team(generic.TemplateView):
     template_name = 'Team.html'

@@ -23,7 +23,11 @@ class fixtures_results(generic.TemplateView):
      template_name = 'Feature_Result.html'
      def get(self, request, *args, **kwargs):
          fixtures = Fixture.objects.all()
-         return render(request, self.template_name, {'fixtures': fixtures})
+         t_20 = Fixture.objects.filter(fixture_type='t20');
+         Test = Fixture.objects.filter(fixture_type='test');
+         Oneday = Fixture.objects.filter(fixture_type='oneday');
+         Other = Fixture.objects.filter(fixture_type='other');
+         return render(request, self.template_name, {'fixtures': fixtures, 't_20':t_20,'Test':Test,'Oneday':Oneday })
 
 class latest_news(generic.TemplateView):
     model = LatestNews

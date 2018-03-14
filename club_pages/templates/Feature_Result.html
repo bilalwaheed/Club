@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block content %}
-<div class="wide title-bar-bg" style="background-image:url('/static/images/fixtures.jpg') !important;">
+<div class="wide title-bar-bg animated zoomIn">
+<img class="img-responsive" src="{% static 'images/fixtures.jpg' %}" style="    width: 100%;height: auto;"/>
 <div class="container title-bar">
     <div class="container">
         <div class="row">
@@ -21,7 +22,136 @@
         <div class="latest-news--title-holder">
             <h2 class="latest-news--title">FIXTURES & RESULTS</h2>
         </div>
-        {% for fixture in fixtures %}
+        <div class="container">
+
+              <ul class="nav nav-pills">
+                <li class="active"><a data-toggle="pill" href="#menu3">All</a></li>
+                <li ><a data-toggle="pill" href="#home">T-20</a></li>
+                <li><a data-toggle="pill" href="#menu1">One Day</a></li>
+                <li><a data-toggle="pill" href="#menu2">Test</a></li>
+
+              </ul>
+
+              <div class="tab-content">
+                <div id="home" class="tab-pane fade in active">
+                    {% for t20 in t_20 %}
+                    <div class="results row revealup fixture-strip--">
+
+                    <div class="results-result col-md-8 col-sm-12 col-xs-12 col-sm-12">
+                        <div class="results-result--info">
+                            <div class="results-result--date">
+                                <time datetime="2018-03-29T10:00:00Z">{{t20.date}}</time>
+                                - <time datetime="2018-03-29T11:00:00Z">{{t20.time}}</time>
+
+                            </div>
+                            <div class="results-result--text">
+                                <span>2 Day Friendly</span>
+                                <span>- The 1st Central County Ground</span>
+                            </div>
+                        </div>
+                        <div class="results-result--team">
+                            <div class="results-result--team-logo">
+                                <div style="float:left"><img src="{% static 'images/transparent logo.png' %}" alt="My image"/>
+                                <span>{{t20.team1.name}}</span>
+                                <span>VS</span>
+                                </div>
+
+                                <div style="float:left">
+                                <img src="{% static 'images/hampshire_t20_2018_0.png' %}" alt="My image"/>
+                                <span>{{t20.team1.name}}</span>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="results-result col-md-4 col-sm-12 col-xs-12 col-sm-12">
+                        <img src="{% static 'images/transparent logo.png' %}" alt="My image"/>
+                    </div>
+
+                </div>
+                {% endfor %}
+                </div>
+                <div id="menu1" class="tab-pane fade">
+                  {% for test in Test %}
+                    <div class="results row revealup fixture-strip--">
+
+                    <div class="results-result col-md-8 col-sm-12 col-xs-12 col-sm-12">
+                        <div class="results-result--info">
+                            <div class="results-result--date">
+                                <time datetime="2018-03-29T10:00:00Z">{{test.date}}</time>
+                                - <time datetime="2018-03-29T11:00:00Z">{{test.time}}</time>
+
+                            </div>
+                            <div class="results-result--text">
+                                <span>2 Day Friendly</span>
+                                <span>- The 1st Central County Ground</span>
+                            </div>
+                        </div>
+                        <div class="results-result--team">
+                            <div class="results-result--team-logo">
+                                <div style="float:left"><img src="{% static 'images/transparent logo.png' %}" alt="My image"/>
+                                <span>{{test.team1.name}}</span>
+                                <span>VS</span>
+                                </div>
+
+                                <div style="float:left">
+                                <img src="{% static 'images/hampshire_t20_2018_0.png' %}" alt="My image"/>
+                                <span>{{test.team1.name}}</span>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="results-result col-md-4 col-sm-12 col-xs-12 col-sm-12">
+                        <img src="{% static 'images/transparent logo.png' %}" alt="My image"/>
+                    </div>
+
+                </div>
+                {% endfor %}
+                </div>
+                <div id="menu2" class="tab-pane fade">
+                    {% for oneday in Oneday %}
+                    <div class="results row revealup fixture-strip--">
+
+                    <div class="results-result col-md-8 col-sm-12 col-xs-12 col-sm-12">
+                        <div class="results-result--info">
+                            <div class="results-result--date">
+                                <time datetime="2018-03-29T10:00:00Z">{{oneday.date}}</time>
+                                - <time datetime="2018-03-29T11:00:00Z">{{oneday.time}}</time>
+
+                            </div>
+                            <div class="results-result--text">
+                                <span>2 Day Friendly</span>
+                                <span>- The 1st Central County Ground</span>
+                            </div>
+                        </div>
+                        <div class="results-result--team">
+                            <div class="results-result--team-logo">
+                                <div style="float:left"><img src="{% static 'images/transparent logo.png' %}" alt="My image"/>
+                                <span>{{oneday.team1.name}}</span>
+                                <span>VS</span>
+                                </div>
+
+                                <div style="float:left">
+                                <img src="{% static 'images/hampshire_t20_2018_0.png' %}" alt="My image"/>
+                                <span>{{oneday.team1.name}}</span>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="results-result col-md-4 col-sm-12 col-xs-12 col-sm-12">
+                        <img src="{% static 'images/transparent logo.png' %}" alt="My image"/>
+                    </div>
+
+                </div>
+                {% endfor %}
+                </div>
+                <div id="menu3" class="tab-pane fade">
+                                {% for fixture in fixtures %}
             <div class="results row revealup fixture-strip--">
 
             <div class="results-result col-md-8 col-sm-12 col-xs-12 col-sm-12">
@@ -38,23 +168,30 @@
                 </div>
                 <div class="results-result--team">
                     <div class="results-result--team-logo">
-                        <img src="{% static 'images/sussex_cc_2018.png' %}" alt="My image"/>
-                    </div>
-                    <div class="results-result--team-name">
-                        {{fixture.team1.name}}
-                        vs
-                        {{fixture.team2.name}}
+                        <div style="float:left"><img src="{% static 'images/transparent logo.png' %}" alt="My image"/>
+                        <span>{{fixture.team1.name}}</span>
+                        <span>VS</span>
+                        </div>
 
+                        <div style="float:left">
+                        <img src="{% static 'images/hampshire_t20_2018_0.png' %}" alt="My image"/>
+                        <span>{{fixture.team1.name}}</span>
+                        </div>
                     </div>
+
 
                 </div>
             </div>
             <div class="results-result col-md-4 col-sm-12 col-xs-12 col-sm-12">
-                <img src="{% static 'images/sussex_cc_2018.png' %}" alt="My image"/>
+                <img src="{% static 'images/transparent logo.png' %}" alt="My image"/>
             </div>
 
         </div>
         {% endfor %}
+                </div>
+              </div>
+            </div>
+
 
 
 

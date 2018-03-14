@@ -55,12 +55,25 @@ class Tournament(models.Model):
 
 
 class Fixture(models.Model):
+    T20 = 't20'
+    Test = 'test'
+    OneDay = 'oneday'
+    Other = 'other'
+
+    FIXTURE_TYPE = (
+        (T20, 'T20'),
+        (Test, 'Test'),
+        (OneDay, 'One Day'),
+        (Other, 'Other')
+    )
     time = models.TimeField()
     date = models.DateField(null=True)
     team1 = models.ForeignKey(Team, related_name='team1', on_delete=models.CASCADE)
     team2 = models.ForeignKey(Team, related_name='team2', on_delete=models.CASCADE)
     venue = models.CharField(max_length=250)
+    fixture_type = models.CharField(max_length=50, choices=FIXTURE_TYPE, default='Type')
     tournament = models.ForeignKey(Tournament, on_delete=models.CASCADE)
+
 
 
 class LatestNews(models.Model):

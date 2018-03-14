@@ -45,7 +45,7 @@
 
                             </div>
                             <div class="results-result--text">
-                                <span>2 Day Friendly</span>
+                                <span>{{t20.fixture_type}}</span>
                                 <span>- The 1st Central County Ground</span>
                             </div>
                         </div>
@@ -73,31 +73,31 @@
                 {% endfor %}
                 </div>
                 <div id="menu1" class="tab-pane fade">
-                  {% for test in Test %}
+                  {% for oneday in Oneday %}
                     <div class="results row revealup fixture-strip--">
 
                     <div class="results-result col-md-8 col-sm-12 col-xs-12 col-sm-12">
                         <div class="results-result--info">
                             <div class="results-result--date">
-                                <time datetime="2018-03-29T10:00:00Z">{{test.date}}</time>
-                                - <time datetime="2018-03-29T11:00:00Z">{{test.time}}</time>
+                                <time datetime="2018-03-29T10:00:00Z">{{oneday.date}}</time>
+                                - <time datetime="2018-03-29T11:00:00Z">{{oneday.time}}</time>
 
                             </div>
                             <div class="results-result--text">
-                                <span>2 Day Friendly</span>
+                                <span>{{oneday.fixture_type}}</span>
                                 <span>- The 1st Central County Ground</span>
                             </div>
                         </div>
                         <div class="results-result--team">
                             <div class="results-result--team-logo">
                                 <div style="float:left"><img src="{% static 'images/transparent logo.png' %}" alt="My image"/>
-                                <span>{{test.team1.name}}</span>
-                                <span>VS</span>
+                                <span style="font-weight: bold;">{{oneday.team1.name}}</span>
+                                <span style="font-weight: bold;">VS</span>
                                 </div>
 
                                 <div style="float:left">
                                 <img src="{% static 'images/hampshire_t20_2018_0.png' %}" alt="My image"/>
-                                <span>{{test.team1.name}}</span>
+                                <span>{{oneday.team1.name}}</span>
                                 </div>
                             </div>
 
@@ -112,31 +112,31 @@
                 {% endfor %}
                 </div>
                 <div id="menu2" class="tab-pane fade">
-                    {% for oneday in Oneday %}
+                    {% for test in Test %}
                     <div class="results row revealup fixture-strip--">
 
                     <div class="results-result col-md-8 col-sm-12 col-xs-12 col-sm-12">
                         <div class="results-result--info">
                             <div class="results-result--date">
-                                <time datetime="2018-03-29T10:00:00Z">{{oneday.date}}</time>
-                                - <time datetime="2018-03-29T11:00:00Z">{{oneday.time}}</time>
+                                <time datetime="2018-03-29T10:00:00Z">{{test.date}}</time>
+                                - <time datetime="2018-03-29T11:00:00Z">{{test.time}}</time>
 
                             </div>
                             <div class="results-result--text">
-                                <span>2 Day Friendly</span>
+                                <span>{{test.fixture_type}}</span>
                                 <span>- The 1st Central County Ground</span>
                             </div>
                         </div>
                         <div class="results-result--team">
                             <div class="results-result--team-logo">
                                 <div style="float:left"><img src="{% static 'images/transparent logo.png' %}" alt="My image"/>
-                                <span>{{oneday.team1.name}}</span>
+                                <span>{{test.team1.name}}</span>
                                 <span>VS</span>
                                 </div>
 
                                 <div style="float:left">
                                 <img src="{% static 'images/hampshire_t20_2018_0.png' %}" alt="My image"/>
-                                <span>{{oneday.team1.name}}</span>
+                                <span>{{test.team1.name}}</span>
                                 </div>
                             </div>
 
@@ -162,7 +162,7 @@
 
                     </div>
                     <div class="results-result--text">
-                        <span>2 Day Friendly</span>
+                        <span>{{fixture.fixture_type}}</span>
                         <span>- The 1st Central County Ground</span>
                     </div>
                 </div>

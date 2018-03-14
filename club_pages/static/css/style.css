@@ -180,7 +180,7 @@ margin-bottom: 40px;
 }
 .results-result--team-logo img
 {
-    margin-top: 0px;
+    margin-top: -8px !important;
     width: 56px;
     height: 48px;
     float: left;
@@ -327,4 +327,13 @@ margin-top: 50px;
 {
     margin-bottom: 20px !important;
 
+}
+.results-result--team-logo span
+{
+font-weight: bold !important;
+font-size: 19px;
+}
+.nav-item:hover
+{
+background-color: #a40000;
 }

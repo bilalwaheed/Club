@@ -65,6 +65,7 @@ class detail(generic.TemplateView):
 
 
 class newsdetail(generic.TemplateView):
+
     model = LatestNews
 
     template_name = 'News_Detail.html'
@@ -72,5 +73,6 @@ class newsdetail(generic.TemplateView):
     def get(self, request, *args, **kwargs):
         nid = kwargs.get('nid')
         news_detail = LatestNews.objects.get(id=nid)
-        return render(request, self.template_name, {'news_detail': news_detail})
+        news = LatestNews.objects.all()
+        return render(request, self.template_name, {'news_detail': news_detail, 'news': news})
 

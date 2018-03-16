@@ -277,7 +277,7 @@ width:100% !important;
 }
 .title-bar-bg
 {
-    margin-top: 0px !important;
+    margin-top: -20px !important;
     margin-bottom: 70px !important;
     background-image: none !important;
     height: 50px !important;

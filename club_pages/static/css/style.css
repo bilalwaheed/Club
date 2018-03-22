@@ -337,4 +337,7 @@ font-size: 19px;
 {
 background-color: #a40000;
 }
-
+.responsive-slider
+{
+    margin-top: -34px !important;
+}

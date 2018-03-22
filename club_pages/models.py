@@ -81,3 +81,6 @@ class LatestNews(models.Model):
     description = models.CharField(max_length=250)
     image = models.ImageField(upload_to=upload_player_image, null=True, blank=True)
 
+class SliderImages(models.Model):
+    image = models.ImageField(upload_to=upload_player_image, null=True, blank=True)
+

@@ -261,6 +261,10 @@ text-align:center;
 margin-top:50px;
 }
 @media only screen and (max-width: 768px) {
+.responsive-slider .slides ul li
+{
+    height: 152px !important;
+}
 .flex-center
 {
 display: table-caption !important;
@@ -340,4 +344,8 @@ background-color: #a40000;
 .responsive-slider
 {
     margin-top: -34px !important;
+}
+.slider-li
+{
+    height: 583px !important;
 }

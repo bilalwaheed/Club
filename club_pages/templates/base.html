@@ -3,36 +3,69 @@
 {% load static %}
 <html lang="en">
   <head>
-    <meta charset="utf-8">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="description" content="">
+      <meta name="author" content="">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <!-- MDB core JavaScript -->
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.0/js/mdb.min.js"></script>
 
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+      <script src="{% static 'js/responsiveslides.min.js' %}"></script>
 
+      <!-- responsive slider -->
+      <script src="{% static 'js/jquery.js' %}"></script>
+      <script src="{% static 'js/jquery.event.move.js' %}"></script>
+      <script src="{% static 'js/responsive-slider.js' %}"></script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link href="{% static 'css/responsive-slider.css' %}" rel="stylesheet" media="screen">
       <!-- Plugin css -->
       <link rel="stylesheet" href="{% static 'css/jquery.animateSlider.css' %}">
       <!-- Demo css -->
       <link rel="stylesheet" href="{% static 'css/font-awesome.css' %}">
       <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
       <link rel="stylesheet" href="{% static 'css/demo1.css' %} ">
-
+            <!-- Bootstrap core JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
       <!--{% load static %} -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
 
-    <title>Club</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+
+      <title>Club</title>
+      <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
     <!-- Bootstrap core CSS -->
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
 
     <!-- Custom styles for this template -->
-    <link href="css/logo-nav.css" rel="stylesheet" />
-      <!-- Bootstrap core js -->
-      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+      <link href="css/logo-nav.css" rel="stylesheet" />
 
 
+      <!-- Font Awesome -->
+
+
+      <!-- Font Awesome -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+      <!-- Bootstrap core CSS -->
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+      <!-- Material Design Bootstrap -->
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.0/css/mdb.min.css" rel="stylesheet">
+
+
+
+      <!-- JQuery -->
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <!-- Bootstrap tooltips -->
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
+
+
+
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
   </head>
   <body>
@@ -41,16 +74,16 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top top-menu" style="background-color: #0C4DA2 !important;">
       <div class="container">
 
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="{% url 'home'%}">
 
-            <img src="{% static 'images/transparent logo.png' %}" alt="My image"/>
+            <img src="{% static 'images/t.png' %}" alt="My image"/>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
+            <li class="nav-item ">
               <a class="nav-link" href="{% url 'home'%}">Home
                 <span class="sr-only">(current)</span>
               </a>
@@ -65,7 +98,7 @@
               <a class="nav-link" href="{% url 'contactus' %}">Contact Us</a>
             </li>
               <li class="nav-item">
-              <a class="nav-link" href="{% url 'latest_news' %}">Latest News</a>
+              <a class="nav-link " href="{% url 'latest_news' %}">Latest News</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'members' %}">Members</a>
@@ -88,7 +121,7 @@
 
 
       <!--Footer-->
-      <footer class="uper-page-footer font-small indigo pt-0">
+      <footer class="uper-page-footer font-small indigo pt-0" style="background-color: white !important;">
 
           <!--Footer Links-->
           <div class="container">
@@ -210,7 +243,7 @@
           <!--Copyright-->
           <div class="footer-copyright py-3 text-center">
               <div class="container-fluid">
-                  © 2016 Copyright: <a href="https://mdbootstrap.com/material-design-for-bootstrap/"> MDBootstrap.com </a>
+                  © 2018 Copyright: <a href="https://mdbootstrap.com/material-design-for-bootstrap/"> Dottech.com </a>
               </div>
           </div>
           <!--/Copyright-->
@@ -221,13 +254,7 @@
 
     <!-- end footer area -->
 
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-
   </body>
+
 
 </html>

@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block content %}
-<div class="wide title-bar-bg"style="background-image:url('/static/images/about1.jpg') !important;">
+<div class="wide title-bar-bg animated zoomIn">
+<img class="img-responsive" src="{% static 'images/about1.jpg' %}" style="    width: 100%;height: auto;"/>
 <div class="container title-bar">
     <div class="container">
         <div class="row">
@@ -19,20 +20,40 @@
 
 <div class="container title-bottom-section">
     <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
+
+        <div class="col-md-12">
             <div class="basic-page--text">
                 <p>We will be launching a brand new Members area in March 2018, ready for the build&nbsp;up to the start of what promises to be one of the most exciting seasons to date.</p>
                 <p>From here, you'll be able to access the new LIVE streaming and video on demand service, see highlights and extended interviews, as well as behind the scenes footage and enter monthly draws and competitions.</p>
                 <p>If you are a member, then don't fear - we will be in touch when the area is ready.</p>
                 <p><strong>If you are not a member then you still have time to purchase by clicking the image below</strong></p>
             </div>
-            <div class="basic-page--text-img">
-                 <img src="{% static 'images/Membership1.jpg' %}" alt="My image"/>
-            </div>
+
         </div>
-            <div class="col-md-2"></div>
+
+
     </div>
+       <section class="lg-panel lg-panel__left">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="basic-page--text-img">
+                                 <img src="{% static 'images/Membership1.jpg' %}" alt="My image"/>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="uper-img">
+                                <img src="{% static 'images/blast1.jpg' %}" alt="My image"/>
+                            </div>
+                            <div class="lower-img">
+                                <img src="{% static 'images/blast2.jpg' %}" alt="My image"/>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
 </div>
+
 
 {% endblock content %}

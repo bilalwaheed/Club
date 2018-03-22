@@ -2,7 +2,8 @@
 {% load staticfiles %}
 {% block content %}
 
-<div class="wide title-bar-bg" style="background-image:url('/static/images/detail.jpg') !important;">
+<div class="wide title-bar-bg animated zoomIn">
+<img class="img-responsive" src="{% static 'images/detail.jpg' %}" style="    width: 100%;height: auto;"/>
 <div class="container title-bar">
     <div class="container">
         <div class="row">
@@ -30,13 +31,42 @@
                 <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="latest-news--story-img"><img src="{{news_detail.image.url}}" alt="My image"/></div>
                 </div>
-                <div class="col-md-8 col-sm-6 col-xs-12">
+                <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="latest-news--story-title">{{news_detail.title}}</div>
                     <div class="latest-news--story-text">
                         {{news_detail.description}}
                     </div>
 
                 </div>
+               <div class="col-md-4 col-sm-6 col-xs-12">
+                       <section class="latest-news hidden-sm">
+                            <div class="container">
+                                <div class="latest-news--title-holder">
+                                    <h2 class="latest-news--title">Latest News</h2>
+                                </div>
+                            </div>
+                             {% for new in news %}
+                            <div class="lastest-news-story">
+
+                               <div class="container">
+                                   <div class="row">
+                                        <div class="col-md-4 col-sm-6 col-xs-12">
+                                        <div class="latest-news--story-img"><img style="width: 80px;" class="wow swing" src="{{new.image.url}}" alt="My image"/></div>
+                                        </div>
+                                        <div class="col-md-8 col-sm-6 col-xs-12">
+                                            <div class="latest-news--story-title" style="font-weight: 200;">{{new.title}}</div>
+                                            <div class="latest-news--story-date">2 Mar 2018</div>
+                                            <a style="    padding: 4px 20px;" class="latest-news--story-link" href="{% url 'news_detail' new.id %}">Read More</a>
+                                        </div>
+                                    </div>
+                               </div>
+
+                            </div>
+                            {% endfor %}
+
+                        </section>
+                </div>
+
             </div>
        </div>
     </div>

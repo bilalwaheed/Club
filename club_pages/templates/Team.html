@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block content %}
-<div class="wide title-bar-bg" style="background-image:url('/static/images/team.jpg') !important;">
+<div class="wide title-bar-bg animated zoomIn">
+<img class="img-responsive" src="{% static 'images/team.jpg' %}" style="    width: 100%;height: auto;"/>
 <div class="container title-bar">
     <div class="container">
         <div class="row">
@@ -24,7 +25,7 @@
             <div class="col-md-4 player">
                 <div class="img-section">
                    <!--<a href="/club_pages/detail"> <img src="{% static 'images/p3.jpg' %}" alt="My image"/> </a>-->
-                   <a href="{% url 'detail' player.id %}"><img src="{{player.image.url}}"> </a>
+                   <a href="{% url 'detail' player.id %}"><img class="wow swing" src="{{player.image.url}}"> </a>
                 </div>
                 <div class="player--name">
                     {{ player.name }}
@@ -39,9 +40,10 @@
 
                 </div>
                 <div class="player--social">
-                    <a target="_blank" href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                    <a target="_blank" href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                    <a target="_blank" href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+
+                    <div class="social-icon"><a target="_blank" href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></div>
+                    <div class="social-icon"><a target="_blank" href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></div>
+                    <div class="social-icon"><a target="_blank" href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></div>
                 </div>
 
             </div>
@@ -51,6 +53,10 @@
     </div>
 </section>
 
+<script>
 
+new WOW().init();
+
+</script>
 
 {% endblock content %}

@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <!--{% load staticfiles %}-->
 {% load static %}
+
 <html lang="en">
   <head>
+
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <meta name="description" content="">
@@ -67,6 +69,29 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+      <!-- move-back to the top-->
+       <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+             <script>
+               $(document).ready(function () {
+                   $(window).scroll(function () {
+                       if ($(this).scrollTop() > 100) {
+                           $('.scrollup').fadeIn();
+                       } else {
+                           $('.scrollup').fadeOut();
+                       }
+                   });
+                   $('.scrollup').click(function () {
+                       $("html, body").animate({
+                           scrollTop: 0
+                       }, 600);
+                       return false;
+                   });
+               });
+             </script>
+
+
+
+
   </head>
   <body>
 
@@ -83,11 +108,6 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item ">
-              <a class="nav-link" href="{% url 'home'%}">Home
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'about-us'%}">About</a>
             </li>
@@ -100,10 +120,8 @@
               <li class="nav-item">
               <a class="nav-link " href="{% url 'latest_news' %}">Latest News</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'members' %}">Members</a>
-            </li>
-            <li class="nav-item">
+
+            <li class="nav-item remove-border">
               <a class="nav-link" href="{% url 'team' %}">Team</a>
             </li>
           </ul>
@@ -117,8 +135,35 @@
     {% endblock content %}
     <!-- /.container -->
 
-    <!-- uper fotter -->
 
+    <!-- uper fotter -->
+<div class="carousel-slider">
+<div class="col-md-12 text-center"><div class="footer--sponsor-title">Major Sponsors</div></div>
+<div class="col-md-6 col-md-offset-3">
+<div class="carousel slide" id="myCarousel">
+  <div class="carousel-inner">
+    <div class="item active">
+      <div class="row">
+      <div class="col-xs-3"><a href="#"><img src="{% static 'images/s1.jpg' %}" class="img-responsive"></a></div>
+      <div class="col-xs-3"><a href="#"><img src="{% static 'images/s2.jpg' %}" class="img-responsive"></a></div>
+      <div class="col-xs-3"><a href="#"><img src="{% static 'images/s3.jpg' %}" class="img-responsive"></a></div>
+      <div class="col-xs-3"><a href="#"><img src="{% static 'images/s4.jpg' %}" class="img-responsive"></a></div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="row">
+      <div class="col-xs-3"><a href="#"><img src="{% static 'images/s5.jpg' %}" class="img-responsive"></a></div>
+      <div class="col-xs-3"><a href="#"><img src="{% static 'images/s4.jpg' %}" class="img-responsive"></a></div>
+      <div class="col-xs-3"><a href="#"><img src="{% static 'images/s2.jpg' %}" class="img-responsive"></a></div>
+      <div class="col-xs-3"><a href="#"><img src="{% static 'images/s1.jpg' %}" class="img-responsive"></a></div>
+      </div>
+    </div>
+  </div>
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+</div>
+</div>
+</div>
 
       <!--Footer-->
       <footer class="uper-page-footer font-small indigo pt-0" style="background-color: white !important;">
@@ -163,6 +208,7 @@
           </div>
           <!--/Footer Links-->
 
+          <!-- sponser couser-->
 
       </footer>
       <!--/Footer-->
@@ -172,7 +218,7 @@
     <!-- Footer area -->
 
       <!--Footer-->
-      <footer class="page-footer font-small indigo pt-0">
+      <footer class="page-footer font-small indigo pt-0" style=" background-color: #001F58!important;">
 
           <!--Footer Links-->
           <div class="container">
@@ -181,34 +227,55 @@
               <div class="row pt-5 mb-3 text-center d-flex justify-content-center" style="    padding-top: 0rem!important;">
 
                   <!--Grid column-->
-                  <div class="col-md-2 mb-3">
-                      <h6 class="title font-weight-bold"><a href="{% url 'about-us'%}">About Us</a></h6>
+                  <div class="col-md-4 mb-3 fotter-info-col">
+                    <div class="col-12">
+                    <div class="heading">
+                        <h3>Contact Info</h3>
+                    </div>
+                    <div class="ul">
+                        <ul class="Services-menu">
+                            <li><i class="fa fa-map-marker" aria-hidden="true"></i>USA XYZ</li>
+                            <li><i class="fa fa-envelope-o" aria-hidden="true"></i>   <a style="color: white;" href="#">contact@gmail.com</a></li>
+                            <li><i class="fa fa-envelope-o" aria-hidden="true"></i>   <a style="color: white;" href="#">contact@gmail.com</a></li>
+                            <li><i class="fa fa-phone" aria-hidden="true"></i>  	  <a style="color: white;" href="#">000-0000-000</a></li>
+                        </ul>
+                    </div>
+                </div>
                   </div>
                   <!--Grid column-->
 
                   <!--Grid column-->
-                  <div class="col-md-2 mb-3">
-                      <h6 class="title font-weight-bold"><a href="{% url 'latest_news' %}">Latest News</a></h6>
+                  <div class="col-md-4 mb-3 fotter-info-col">
+                      <div class="col-12">
+                    <div class="heading">
+                        <h3>About Us</h3>
+                    </div>
+                    <div class="ul">
+                        <p style="text-align: left;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    </div>
+                </div>
                   </div>
                   <!--Grid column-->
 
                   <!--Grid column-->
-                  <div class="col-md-2 mb-3">
-                      <h6 class="title font-weight-bold"><a href="{% url 'members' %}">Members</a></h6>
+                  <div class="col-md-4 mb-3 fotter-info-col">
+                      <div class="col-12">
+                    <div class="heading">
+                        <h3>Socail Links</h3>
+                    </div>
+                    <div class="ul">
+                        <ul class="Services-menu socail-links">
+                            <p style="text-align: left;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make</p>
+                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
                   </div>
                   <!--Grid column-->
 
-                  <!--Grid column-->
-                  <div class="col-md-2 mb-3">
-                      <h6 class="title font-weight-bold"><a href="{% url 'team' %}">Team</a></h6>
-                  </div>
-                  <!--Grid column-->
-
-                  <!--Grid column-->
-                  <div class="col-md-2 mb-3">
-                      <h6 class="title font-weight-bold"><a href="{% url 'contactus' %}">Contact</a></h6>
-                  </div>
-                  <!--Grid column-->
 
               </div>
               <!--Grid row-->
@@ -233,6 +300,7 @@
 
               <hr class="clearfix d-md-none rgba-white-light" style="margin: 10% 15% 5%;">
 
+
               <!--Grid row-->
 
               <!--Grid row-->
@@ -241,9 +309,10 @@
           <!--/Footer Links-->
 
           <!--Copyright-->
-          <div class="footer-copyright py-3 text-center">
+          <div class="footer-copyright py-3 text-center" style="background-color: #1769E3 !important;">
               <div class="container-fluid">
                   © 2018 Copyright: <a href="https://mdbootstrap.com/material-design-for-bootstrap/"> Dottech.com </a>
+                    <a href="#" class="scrollup">Scroll <br>Up</a>
               </div>
           </div>
           <!--/Copyright-->
@@ -258,3 +327,25 @@
 
 
 </html>
+
+
+<script>// Instantiate the Bootstrap carousel
+$('.multi-item-carousel').carousel({
+  interval: false
+});
+
+// for every slide in carousel, copy the next slide's item in the slide.
+// Do the same for the next, next item.
+$('.multi-item-carousel .item').each(function(){
+  var next = $(this).next();
+  if (!next.length) {
+    next = $(this).siblings(':first');
+  }
+  next.children(':first-child').clone().appendTo($(this));
+
+  if (next.next().length>0) {
+    next.next().children(':first-child').clone().appendTo($(this));
+  } else {
+  	$(this).siblings(':first').children(':first-child').clone().appendTo($(this));
+  }
+});</script>

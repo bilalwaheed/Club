@@ -55,7 +55,7 @@ background-color:white;
 .title-bar-bg
 {
 margin-top:70px !important;
-height:500px;
+height:auto !important;
 }
 .title
 {

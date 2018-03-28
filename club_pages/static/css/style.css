@@ -259,6 +259,16 @@ text-align:center;
 .contact-icons
 {
 margin-top:50px;
+    list-style-type: none;
+}
+.contact-icons li i
+{
+        float: left;
+    padding-right: 10px;
+}
+.contact-icons li
+{
+    padding-bottom: 20px;
 }
 @media only screen and (max-width: 768px) {
   .home-page-text
@@ -267,15 +277,15 @@ margin-top:50px;
   }
  .players--holder
  {
-         margin-top: 170px;
+         margin-top: 20px !important;
  }
  .latest-news
  {
-         margin-top: 220px !important;
+         margin-top: 80px !important;
  }
  .section-heading
  {
-     margin-top: 200px !important;
+     margin-top: 80px !important;
  }
  .latest-news--title-holder
  {
@@ -449,6 +459,7 @@ background-color: #a40000;
 }
 .fotter-info-col .heading
 {
+    display: none;
     text-align: left !important;
     padding-top: 20px !important;
 }
@@ -461,7 +472,8 @@ background-color: #a40000;
     list-style: none !important;
     text-align: left !important;
         float: left!important;
-        padding: 0 0 0 0 !important;
+
+    padding-top: 60px !important;
 }
 .fotter-info-col .ul .Services-menu li
 {
@@ -502,12 +514,12 @@ font-weight: bold;
     font-size: 18px;
         padding-left: 10px;
     padding-top: 5px;
+    text-align: center;
 }
 .performence .abc
 {
 
-    padding-left: 10px;
-    padding-top: 5px;
+     text-align: center;
 }
 .top-batsmen
 {
@@ -531,3 +543,41 @@ font-weight: bold;
     display: none;
 }
 
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}

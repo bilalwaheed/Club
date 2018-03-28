@@ -261,6 +261,30 @@ text-align:center;
 margin-top:50px;
 }
 @media only screen and (max-width: 768px) {
+  .home-page-text
+  {
+      padding-top: 30px !important;
+  }
+ .players--holder
+ {
+         margin-top: 170px;
+ }
+ .latest-news
+ {
+         margin-top: 220px !important;
+ }
+ .section-heading
+ {
+     margin-top: 200px !important;
+ }
+ .latest-news--title-holder
+ {
+     margin-top: 222px !important;
+ }
+ .basic-page--text
+ {
+    padding-top: 130px;
+ }
 
 .navbar-collapse .navbar-nav li
 {
@@ -405,7 +429,7 @@ background-color: #a40000;
 }
 .slider-li
 {
-    height: 583px !important;
+    height: 531px !important;
 }
 .navbar-nav .remove-border a
 {
@@ -499,7 +523,6 @@ font-weight: bold;
    right: 7px;
    display: none;
    text-indent: 0px;
-    background-color: black !important;
 
  }
 

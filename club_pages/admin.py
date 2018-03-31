@@ -8,7 +8,7 @@ class FixtureAdmin(admin.ModelAdmin):
 
 class PlayersAdmin(admin.ModelAdmin):
     model = Player
-    list_display = ('name', 'dob', 'birth_place', 'squad_no', 'type', 'bowling_style', 'player_type', 'image', 'total_matches')
+    list_display = ('name', 'dob', 'birth_place', 'squad_no', 'type', 'bowling_style', 'player_type', 'image', 'total_matches', 'average')
 
 class ClubAdmin(admin.ModelAdmin):
     model = Club

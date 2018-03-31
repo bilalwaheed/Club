@@ -212,6 +212,7 @@ margin-bottom: 40px;
     color: #c10000;
     margin-bottom: 5px;
     font-size: 14px;
+    text-align: left;
 }
 .player--info-text span
 {
@@ -271,6 +272,15 @@ margin-top:50px;
     padding-bottom: 20px;
 }
 @media only screen and (max-width: 768px) {
+    .new-menu
+    {
+        display: block !important;
+    }
+
+   .top-menu
+   {
+       display: none !important;
+   }
   .home-page-text
   {
       padding-top: 30px !important;
@@ -580,4 +590,9 @@ font-weight: bold;
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
+}
+
+.new-menu
+{
+    display: none;
 }

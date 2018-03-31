@@ -2,6 +2,7 @@
 <!--{% load staticfiles %}-->
 {% load static %}
 
+
 <html lang="en">
   <head>
 
@@ -36,7 +37,9 @@
       <!--{% load static %} -->
 
 
-      <title>Club</title>
+      <!--<title><link rel="icon" href="{% static 'images/favicon.png' %}">Club</title>-->
+      <title>Holmlia cricket club</title>
+
       <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
     <!-- Bootstrap core CSS -->
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
@@ -130,11 +133,7 @@
     </nav>
 
 
-    <!-- new mobile menu -->
 
-
-
-    <!-- end new mobile menu -->
 
     <!-- Page Content -->
     {% block content %}
@@ -357,3 +356,15 @@ $('.multi-item-carousel .item').each(function(){
   	$(this).siblings(':first').children(':first-child').clone().appendTo($(this));
   }
 });</script>
+
+
+
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+</script>

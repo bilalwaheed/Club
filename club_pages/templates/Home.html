@@ -95,75 +95,33 @@ $( document ).ready( function() {
 <div class="container">
 	<div class="section--sep section--sep__sm"></div>
 </div>
-<section class="lg-panel lg-panel__left">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="top-batsmen">
-                    <div class="section-name">
-                        <h3>Top Batsmen 2018</h3>
-                    </div>
-                    <div class="performence">
-                        <div class="player-pic">
-                            <img src="{% static 'images/p4.jpg' %}"/>
-                        </div>
-                        <div class="name">
-                           <span>Name : </span> <span>Bilal Waheed</span>
-                        </div>
-                        <div class="abc">
-                           <span>Match Played : </span> <span>100</span><br>
-                            <span>Runs Scored : </span><span>10000</span><br>
-                           <span>Strike Rate : </span> <span>170.11</span><br>
-                           <span>Average : </span> <span>58</span>
-                        </div>
+<section class="lg-panel player-section">
+    <div class="container players--holder" style="text-align: -webkit-center;">
+        <div class="row new-mrg">
 
-                    </div>
+            {% for tc in top_category %}
+            <div class="col-md-4 player">
+                <div class="img-section">
+                   <!--<a href="/club_pages/detail"> <img src="{% static 'images/p3.jpg' %}" alt="My image"/> </a>-->
+                   <a href="{% url 'detail' tc.player.id %}"><img class="wow swing" src="{{tc.player.image.url}}"> </a>
                 </div>
-            </div>
-            <div class="col-md-4">
-                              <div class="top-batsmen">
-                    <div class="section-name">
-                        <h3>Top Bowler 2018</h3>
-                    </div>
-                    <div class="performence">
-                        <div class="player-pic">
-                            <img src="{% static 'images/p5.jpg' %}"/>
-                        </div>
-                        <div class="name">
-                           <span>Name : </span> <span>Bilal Waheed</span>
-                        </div>
-                        <div class="abc">
-                           <span>Match Played : </span> <span>100</span><br>
-                            <span>Runs Scored : </span><span>10000</span><br>
-                           <span>Strike Rate : </span> <span>170.11</span><br>
-                           <span>Average : </span> <span>58</span>
-                        </div>
+                <div class="player--name">
+                    {{ tc.title }}
+                </div>
+                <div class="player--info matchHeight">
+                    <div class="player--info-text">    <strong>Name: </strong><span><time datetime="1994-07-08T12:00:00Z">{{tc.player.name}}</time>
+                    </span></div>
+                    <div class="player--info-text">    <strong>Total Matches: </strong><span>{{ tc.player.total_matches }}</span></div>
+                    <div class="player--info-text">    <strong>Score: </strong><span>{{ tc.player.total_runs }}</span></div>
+                    <div class="player--info-text">    <strong>Average: </strong><span>{{ tc.player.average }} </span></div>
 
-                    </div>
-                </div>
-            </div>
-			<div class="col-md-4">
-                              <div class="top-batsmen">
-                    <div class="section-name">
-                        <h3>Top Fielder 2018</h3>
-                    </div>
-                    <div class="performence">
-                        <div class="player-pic">
-                            <img src="{% static 'images/p3.jpg' %}"/>
-                        </div>
-                        <div class="name">
-                           <span>Name : </span> <span>Bilal Waheed</span>
-                        </div>
-                        <div class="abc">
-                           <span>Match Played : </span> <span>100</span><br>
-                            <span>Runs Scored : </span><span>10000</span><br>
-                           <span>Strike Rate : </span> <span>170.11</span><br>
-                           <span>Average : </span> <span>58</span>
-                        </div>
 
-                    </div>
                 </div>
+
+
             </div>
+            {% endfor %}
+
         </div>
     </div>
 </section>

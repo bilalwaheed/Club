@@ -19,7 +19,7 @@
 </div>
 
 <section class="lg-panel player-section">
-    <div class="container players--holder">
+    <div class="container players--holder" style="text-align: -webkit-center;">
         <div class="row new-mrg">
             {% for player in players %}
             <div class="col-md-4 player">
@@ -31,7 +31,7 @@
                     {{ player.name }}
                 </div>
                 <div class="player--info matchHeight">
-                    <div class="player--info-text">    <strong>DOB:</strong><span><time datetime="1994-07-08T12:00:00Z">{{player.dob}}</time>
+                    <div class="player--info-text">    <strong>DOB: </strong><span><time datetime="1994-07-08T12:00:00Z">{{player.dob}}</time>
                     </span></div>
                     <div class="player--info-text">    <strong>Birthplace: </strong><span>{{ player.birth_place }}</span></div>
                     <div class="player--info-text">    <strong>Squad Number: </strong><span>{{ player.squad_no }}</span></div>
@@ -39,12 +39,7 @@
                     <div class="player--info-text">    <strong>Batting Style: </strong><span>{{ player.batting_style }}</span></div>
 
                 </div>
-                <div class="player--social">
 
-                    <div class="social-icon"><a target="_blank" href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></div>
-                    <div class="social-icon"><a target="_blank" href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></div>
-                    <div class="social-icon"><a target="_blank" href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></div>
-                </div>
 
             </div>
             {% endfor %}

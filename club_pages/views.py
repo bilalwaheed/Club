@@ -3,7 +3,7 @@ from django.shortcuts import render, render_to_response
 from django.views import generic
 
 # Create your views here.
-from club_pages.models import Player, Fixture, LatestNews, SliderImages, TopCategory
+from club_pages.models import Player, Fixture, LatestNews, SliderImages, TopCategory, Team
 
 
 class ContactUsView(generic.TemplateView):
@@ -53,7 +53,11 @@ class team(generic.TemplateView):
     # render_to_response(template_name)
     def get(self, request, *args, **kwargs):
         players = Player.objects.all()
-        return  render(request, self.template_name,{'players':players})
+        first_team = Team.objects.all()[:1]
+        teams = Team.objects.all()[0:]
+
+        return  render(request, self.template_name,{'players':players , 'first_team':first_team, 'teams': teams})
+
 
 class detail(generic.TemplateView):
     model = Player

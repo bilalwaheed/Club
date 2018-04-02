@@ -272,15 +272,17 @@ margin-top:50px;
     padding-bottom: 20px;
 }
 @media only screen and (max-width: 768px) {
+
+    .fotter-info-col .ul .Services-menu
+    {
+            margin-left: -38px;
+    }
     .new-menu
     {
         display: block !important;
     }
 
-   .top-menu
-   {
-       display: none !important;
-   }
+
   .home-page-text
   {
       padding-top: 30px !important;
@@ -595,4 +597,8 @@ font-weight: bold;
 .new-menu
 {
     display: none;
+}
+
+input:focus::-webkit-input-placeholder {
+    opacity: 0;
 }

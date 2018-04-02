@@ -11,7 +11,7 @@ class Player(models.Model):
     birth_place = models.CharField(max_length=250)
     squad_no = models.IntegerField()
     type = models.CharField(max_length=250)
-    type = models.CharField(max_length=250)
+    # type = models.CharField(max_length=250)
     bowling_style = models.CharField(max_length=250)
     player_type = models.CharField(max_length=250)
     image = models.ImageField(upload_to=upload_player_image, null=True, blank=True)
@@ -23,6 +23,7 @@ class Player(models.Model):
     total_wickets = models.IntegerField(default=0)
     catches = models.IntegerField(default=0)
     description = models.CharField(max_length=1000, default='SOME STRING')
+    team = models.ForeignKey("Team", on_delete=models.CASCADE)
 
     # team = models.ForeignKey(Team, on_delete=models.CASCADE)
 
@@ -51,7 +52,7 @@ class Team(models.Model):
     Ranking = models.IntegerField()
     logo = models.CharField(max_length=1000)
     slug = models.CharField(max_length=250)
-    player_detail = models.ForeignKey(Player, on_delete=models.CASCADE)
+    # player_detail = models.ForeignKey(Player, on_delete=models.CASCADE)
     club = models.ForeignKey(Club, on_delete=models.CASCADE)
 
     def __str__(self):

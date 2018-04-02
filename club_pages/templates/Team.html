@@ -17,11 +17,31 @@
     </div>
 </div><!-- /.container -->
 </div>
+<section class="latest-news fixture-latest-news hidden-sm">
+    <div class="container">
+        <div class="latest-news--title-holder">
+            <h2 class="latest-news--title">TEAMS</h2>
+        </div>
+    </div>
+</section>
 
-<section class="lg-panel player-section">
-    <div class="container players--holder" style="text-align: -webkit-center;">
-        <div class="row new-mrg">
-            {% for player in players %}
+<!-- Team tabs -->
+<div class="container" style="    text-align: -webkit-center;">
+
+
+   <ul class="nav nav-pills" style="    margin-left: 49px;">
+    {% for team in teams %}
+            <li><a data-toggle="pill" class='menu-{{team.id}}' href="#menu-{{team.id}}">{{team.name}}</a></li>
+       {% endfor %}
+  </ul>
+
+  <div class="tab-content">
+      {% for team in teams %}
+          <!--<div id="menu-{{team.id}}" class="tab-pane fade {% if teams.id == 0 %} in active {% endif %}">-->
+              <!--<div id="menu-{{team.id}}" class="tab-pane fade {{ forloop.counter }}in active">-->
+                <!--<div id="menu-{{team.id}}" class="tab-pane fade {% if forloop.first %}{% endif %} in active">-->
+            <div id="menu-{{team.id}}" class="tab-pane fade {% if forloop.counter0 %}active{% endif %} ">
+              {% for player in team.player_set.all %}
             <div class="col-md-4 player">
                 <div class="img-section">
                    <!--<a href="/club_pages/detail"> <img src="{% static 'images/p3.jpg' %}" alt="My image"/> </a>-->
@@ -43,14 +63,20 @@
 
             </div>
             {% endfor %}
+          </div>
+      {%endfor%}
 
-        </div>
-    </div>
-</section>
+
+  </div>
+</div>
+
+<!-- end Team tabs-->
+
+
+
 
 <script>
-
-new WOW().init();
+    document.getElementsByClassName('menu-'+'{{teams.0.id}}')[0].click()
 
 </script>
 

@@ -113,3 +113,9 @@ class LatestNews(models.Model):
 class SliderImages(models.Model):
     image = models.ImageField(upload_to=upload_player_image, null=True, blank=True)
 
+class UpCommingMatches(models.Model):
+    title = models.CharField(max_length=250)
+    date = models.DateField(null=True)
+    team1 = models.CharField(max_length=250)
+    team2 = models.CharField(max_length=250)
+    time = models.TimeField()

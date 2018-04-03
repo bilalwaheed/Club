@@ -73,22 +73,37 @@ $( document ).ready( function() {
 </div>
 
 <section class="lg-panel lg-panel__left">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8">
-                <div class="basic-page--text-img">
-                     <img src="{% static 'images/Membership1.jpg' %}" alt="My image"/>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="uper-img">
-                    <img src="{% static 'images/blast1.jpg' %}" alt="My image"/>
-                </div>
-                <div class="lower-img">
-                    <img src="{% static 'images/blast2.jpg' %}" alt="My image"/>
-                </div>
+    <div class="container upcomming">
 
+        <div class="col-name"><h1>UPCOMMING MATCHES</h1></div>
+        <div class="row">
+
+            {% for up in upcomming_mathes %}
+            <div class="col-md-4" style="text-align: center;">
+                <div class="con">
+                    <div class="title-head">
+                        <h2>{{up.title}}</h2>
+                    </div>
+                    <div class="teams">
+                    <div class="team1" style="float: left">
+                        <div class="team-name" style="padding-right: 7px;"><span style="    font-size: 20px;    color: white;
+">{{up.team1}}</span><span style="    color: white;
+">  VS  </span></div>
+                    </div>
+                    <div class="team2">
+                        <div class="team-name"><span style="    font-size: 20px;    color: white;margin-left: -70px;
+">   {{up.team2}}</span></div>
+                    </div>
+                </div>
+                    <div class="date">
+                        <h4><span>{{up.date}}</span><span>, {{up.time}}</span></h4>
+                    </div>
+                    <div class="view-more-btn">
+                        <a class="view-more-button" href="/fixtures_results">View More</a>
+                    </div>
+                </div>
             </div>
+            {% endfor %}
         </div>
     </div>
 </section>

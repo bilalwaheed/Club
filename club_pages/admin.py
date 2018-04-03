@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Player, Club, Team, Member, Tournament, Fixture, LatestNews,SliderImages,TopCategory
+from .models import Player, Club, Team, Member, Tournament, Fixture, LatestNews,SliderImages,TopCategory,UpCommingMatches
 
 
 class FixtureAdmin(admin.ModelAdmin):
@@ -35,6 +35,10 @@ class TopCategoryAdmin(admin.ModelAdmin):
     model = TopCategory
     list_display = ('player', 'title')
 
+class UpCommingMatchesAdmin(admin.ModelAdmin):
+    model = UpCommingMatches
+    list_display = ('date', 'title', 'team1', 'team2', 'time')
+
 admin.site.register(Player, PlayersAdmin)
 admin.site.register(Club, ClubAdmin)
 admin.site.register(Team, TeamAdmin)
@@ -44,3 +48,4 @@ admin.site.register(Fixture, FixtureAdmin)
 admin.site.register(LatestNews, LatestNewsAdmin)
 admin.site.register(SliderImages)
 admin.site.register(TopCategory, TopCategoryAdmin)
+admin.site.register(UpCommingMatches, UpCommingMatchesAdmin)

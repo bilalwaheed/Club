@@ -613,6 +613,10 @@ input:focus::-webkit-input-placeholder {
 {
         font-weight: bold;
         color: white;
+            margin: auto;
+    width: 1140px;
+
+    background-color: #0C4DA2;
 }
 .title-head
 {
@@ -635,15 +639,14 @@ margin-left: 70px;
 }
 .upcomming
 {
-
     background: url("/static/images/bg2.jpg");
-        padding-top: 10px;
+    padding-top: 10px;
     padding-bottom: 20px;
 }
 .view-more-button
 {
 
-        background-color: #0C4DA2;
+    background-color: #0C4DA2;
     padding: 8px;
     color: white;
 }

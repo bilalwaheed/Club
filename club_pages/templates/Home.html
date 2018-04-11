@@ -1,60 +1,47 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block content %}
-	<!-- RESPONSIVE SLIDER - START -->
-<div class="responsive-slider" data-spy="responsive-slider" data-autoplay="true" data-interval="5000" data-transitiontime="300">
+<!-- RESPONSIVE SLIDER - START -->
+<div class="responsive-slider" data-spy="responsive-slider" data-autoplay="true" data-interval="5000"
+     data-transitiontime="300">
 
 
-  <div class="slides" data-group="slides">
-   <ul>
-   {% for sliderimg in sliderImages %}
+    <div class="slides" data-group="slides">
+        <ul>
+            {% for sliderimg in sliderImages %}
 
-      <li class="slider-li">
+            <li class="slider-li">
 
-        <div class="slide-body" data-group="slide">
-          <!--<img src="{% static 'images/hd.jpg' %}">-->
-            <img src="{{sliderimg.image.url}}"/>
+                <div class="slide-body" data-group="slide">
+                    <!--<img src="{% static 'images/hd.jpg' %}">-->
+                    <img src="{{sliderimg.image.url}}"/>
 
-        </div>
+                </div>
 
-      </li>
+            </li>
 
-    {% endfor %}
-    </ul>
-  </div>
+            {% endfor %}
+        </ul>
+    </div>
 
-  <a class="slider-control left" href="#" data-jump="prev"><i class="fa fa-chevron-left"></i></a>
-  <a class="slider-control right" href="#" data-jump="next"><i class="fa fa-chevron-right"></i></a>
+    <a class="slider-control left" href="#" data-jump="prev"><i class="fa fa-chevron-left"></i></a>
+    <a class="slider-control right" href="#" data-jump="next"><i class="fa fa-chevron-right"></i></a>
 
 </div>
 <!-- RESPONSIVE SLIDER - END -->
 
-		<!-- credits
-		<p id="credits">Made with love by <a href="https://github.com/Vchouliaras">Vchouliaras</a></p>
-		<a href="https://github.com/Vchouliaras/jquery.animateSlider.js">
-			<img id="github-logo" src="{% static 'images/github-cat.png' %}" alt="Github Cat">
-		</a>
-		-->
-<script>
-$( document ).ready( function() {
-  $('.responsive-slider').responsiveSlider();
-});
-</script>
-<script>
-$( document ).ready( function() {
-  $('.responsive-slider').responsiveSlider({
-    autoplay: true,
-    interval: 5000,
-    transitionTime: 300
-  });
-});
-</script>
+<!-- credits
+<p id="credits">Made with love by <a href="https://github.com/Vchouliaras">Vchouliaras</a></p>
+<a href="https://github.com/Vchouliaras/jquery.animateSlider.js">
+    <img id="github-logo" src="{% static 'images/github-cat.png' %}" alt="Github Cat">
+</a>
+-->
 
-      <!-- responsive slider -->
-      <script src="{% static 'js/jquery.js' %}"></script>
-      <script src="{% static 'js/jquery.event.move.js' %}"></script>
-      <script src="{% static 'js/responsive-slider.js' %}"></script>
 
+<!-- responsive slider -->
+<!--<script src="{% static 'js/jquery.js' %}"></script>-->
+<!--<script src="{% static 'js/jquery.event.move.js' %}"></script>-->
+<!--<script src="{% static 'js/responsive-slider.js' %}"></script>-->
 
 
 <div class="container title-bottom-section">
@@ -62,8 +49,13 @@ $( document ).ready( function() {
 
         <div class="col-md-12">
             <div class="basic-page--text home-page-text">
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
-                <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+                    and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
+                    leap into electronic typesetting, remaining essentially unchanged. </p>
+                <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+                    and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem
+                    Ipsum.</p>
 
             </div>
 
@@ -86,16 +78,16 @@ $( document ).ready( function() {
                         <h2>{{up.title}}</h2>
                     </div>
                     <div class="teams">
-                    <div class="team1" style="float: left">
-                        <div class="team-name" style="padding-right: 7px;"><span style="    font-size: 20px;    color: white;
+                        <div class="team1" style="float: left">
+                            <div class="team-name" style="padding-right: 7px;"><span style="    font-size: 20px;    color: white;
 ">{{up.team1}}</span><span style="    color: white;
 ">  VS  </span></div>
-                    </div>
-                    <div class="team2">
-                        <div class="team-name"><span style="    font-size: 20px;    color: white;margin-left: -70px;
+                        </div>
+                        <div class="team2">
+                            <div class="team-name"><span style="    font-size: 20px;    color: white;margin-left: -70px;
 ">   {{up.team2}}</span></div>
+                        </div>
                     </div>
-                </div>
                     <div class="date">
                         <h4><span>{{up.date}}</span><span>, {{up.time}}</span></h4>
                     </div>
@@ -109,7 +101,7 @@ $( document ).ready( function() {
     </div>
 </section>
 <div class="container">
-	<div class="section--sep section--sep__sm"></div>
+    <div class="section--sep section--sep__sm"></div>
 </div>
 <section class="lg-panel player-section">
     <div class="container players--holder" style="text-align: -webkit-center;">
@@ -118,18 +110,21 @@ $( document ).ready( function() {
             {% for tc in top_category %}
             <div class="col-md-4 player">
                 <div class="img-section">
-                   <!--<a href="/club_pages/detail"> <img src="{% static 'images/p3.jpg' %}" alt="My image"/> </a>-->
-                   <a href="{% url 'detail' tc.player.id %}"><img class="wow swing" src="{{tc.player.image.url}}"> </a>
+                    <!--<a href="/club_pages/detail"> <img src="{% static 'images/p3.jpg' %}" alt="My image"/> </a>-->
+                    <a href="{% url 'detail' tc.player.id %}"><img class="wow swing" src="{{tc.player.image.url}}"> </a>
                 </div>
                 <div class="player--name">
                     {{ tc.title }}
                 </div>
                 <div class="player--info matchHeight">
-                    <div class="player--info-text">    <strong>Name: </strong><span><time datetime="1994-07-08T12:00:00Z">{{tc.player.name}}</time>
+                    <div class="player--info-text"><strong>Name: </strong><span><time datetime="1994-07-08T12:00:00Z">
+                        {{tc.player.name}}
+                    </time>
                     </span></div>
-                    <div class="player--info-text">    <strong>Total Matches: </strong><span>{{ tc.player.total_matches }}</span></div>
-                    <div class="player--info-text">    <strong>Score: </strong><span>{{ tc.player.total_runs }}</span></div>
-                    <div class="player--info-text">    <strong>Average: </strong><span>{{ tc.player.average }} </span></div>
+                    <div class="player--info-text"><strong>Total
+                        Matches: </strong><span>{{ tc.player.total_matches }}</span></div>
+                    <div class="player--info-text"><strong>Score: </strong><span>{{ tc.player.total_runs }}</span></div>
+                    <div class="player--info-text"><strong>Average: </strong><span>{{ tc.player.average }} </span></div>
 
 
                 </div>
@@ -142,7 +137,7 @@ $( document ).ready( function() {
     </div>
 </section>
 <div class="container">
-	<div class="section--sep section--sep__sm"></div>
+    <div class="section--sep section--sep__sm"></div>
 </div>
 <section class="latest-news hidden-sm">
     <div class="container">
@@ -153,10 +148,11 @@ $( document ).ready( function() {
     {% for new in news %}
     <div class="lastest-news-story">
 
-       <div class="container">
-           <div class="row">
+        <div class="container">
+            <div class="row">
                 <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="latest-news--story-img"><img class="wow swing" src="{{new.image.url}}" alt="My image"/></div>
+                    <div class="latest-news--story-img"><img class="wow swing" src="{{new.image.url}}" alt="My image"/>
+                    </div>
                 </div>
                 <div class="col-md-8 col-sm-6 col-xs-12 new-detail">
                     <div class="latest-news--story-title">{{new.title}}</div>
@@ -167,20 +163,36 @@ $( document ).ready( function() {
                     <a class="latest-news--story-link" href="{% url 'news_detail' new.id %}">Read More</a>
                 </div>
             </div>
-       </div>
+        </div>
 
     </div>
     {% endfor %}
 
 </section>
 <div class="container">
-	<div class="section--sep section--sep__sm"></div>
+    <div class="section--sep section--sep__sm"></div>
 </div>
 
 
-<script>
+{% endblock content %}
 
-new WOW().init();
+{% block extrajs %}
+
+<script>
+    $(document).ready(function () {
+        $('.responsive-slider').responsiveSlider();
+    });
+
+    $(document).ready(function () {
+        $('.responsive-slider').responsiveSlider({
+            autoplay: true,
+            interval: 5000,
+            transitionTime: 300
+        });
+    });
+
+
+    new WOW().init();
 
 </script>
-{% endblock content %}
+{% endblock %}

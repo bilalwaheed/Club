@@ -3,7 +3,7 @@ from django.shortcuts import render, render_to_response
 from django.views import generic
 
 # Create your views here.
-from club_pages.models import Player, Fixture, LatestNews, SliderImages, TopCategory, Team, UpCommingMatches
+from club_pages.models import Player, Fixture, LatestNews, SliderImages, TopCategory, Team
 
 
 class ContactUsView(generic.TemplateView):
@@ -38,14 +38,15 @@ class latest_news(generic.TemplateView):
 
 
 class home(generic.TemplateView):
-    model = LatestNews
+    model = LatestNews, Fixture
     template_name = 'Home.html'
     #render_to_response(template_name)
     def get(self, request, *args, **kwargs):
         news = LatestNews.objects.all()
         sliderImages = SliderImages.objects.all()
         top_category = TopCategory.objects.all()
-        upcomming_mathes = UpCommingMatches.objects.all()
+        # upcomming_mathes = UpCommingMatches.objects.all()
+        upcomming_mathes = Fixture.objects.all().order_by('-time')[:3]
         return render(request, self.template_name, {'news': news,'sliderImages': sliderImages,'top_category': top_category,'upcomming_mathes':upcomming_mathes})
 
 

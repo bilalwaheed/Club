@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Player, Club, Team, Member, Tournament, Fixture, LatestNews,SliderImages,TopCategory,UpCommingMatches
+from .models import Player, Club, Team, Tournament, Fixture, LatestNews,SliderImages,TopCategory
 
 
 class FixtureAdmin(admin.ModelAdmin):
@@ -8,7 +8,7 @@ class FixtureAdmin(admin.ModelAdmin):
 
 class PlayersAdmin(admin.ModelAdmin):
     model = Player
-    list_display = ('name', 'dob', 'birth_place', 'squad_no', 'type', 'bowling_style', 'player_type', 'image', 'total_matches', 'average')
+    list_display = ('name', 'dob', 'birth_place', 'squad_no', 'bowling_style', 'player_type', 'image')
 
 class ClubAdmin(admin.ModelAdmin):
     model = Club
@@ -17,11 +17,11 @@ class ClubAdmin(admin.ModelAdmin):
 
 class TeamAdmin(admin.ModelAdmin):
     model = Team
-    list_display = ('name', 'coach_name', 'total_member','Ranking')
+    list_display = ('name', 'coach_name')
 
-class MemberAdmin(admin.ModelAdmin):
-    model = Member
-    list_display = ('name', 'Email')
+# class MemberAdmin(admin.ModelAdmin):
+#     model = Member
+#     list_display = ('name', 'Email')
 
 class TournamentAdmin(admin.ModelAdmin):
     model = Tournament
@@ -35,17 +35,17 @@ class TopCategoryAdmin(admin.ModelAdmin):
     model = TopCategory
     list_display = ('player', 'title')
 
-class UpCommingMatchesAdmin(admin.ModelAdmin):
-    model = UpCommingMatches
-    list_display = ('date', 'title', 'team1', 'team2', 'time')
+# class UpCommingMatchesAdmin(admin.ModelAdmin):
+#     model = UpCommingMatches
+#     list_display = ('date', 'title', 'team1', 'team2', 'time')
 
 admin.site.register(Player, PlayersAdmin)
 admin.site.register(Club, ClubAdmin)
 admin.site.register(Team, TeamAdmin)
-admin.site.register(Member, MemberAdmin)
+# admin.site.register(Member, MemberAdmin)
 admin.site.register(Tournament, TournamentAdmin)
 admin.site.register(Fixture, FixtureAdmin)
 admin.site.register(LatestNews, LatestNewsAdmin)
 admin.site.register(SliderImages)
 admin.site.register(TopCategory, TopCategoryAdmin)
-admin.site.register(UpCommingMatches, UpCommingMatchesAdmin)
+# admin.site.register(UpCommingMatches, UpCommingMatchesAdmin)

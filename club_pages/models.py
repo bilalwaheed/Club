@@ -23,18 +23,21 @@ class Player(models.Model):
     total_matches = models.IntegerField(default=0)
     description = models.CharField(max_length=1000, default='SOME STRING')
     team = models.ForeignKey("Team", on_delete=models.CASCADE)
-    email = models.EmailField(max_length=250,default='example@gmail.com')
+    email = models.EmailField(max_length=250, default='example@gmail.com')
     phone_no = models.IntegerField(default=0)
-    Is_keeper = models.CharField(max_length=250,default=0)
+    Is_keeper = models.CharField(max_length=250, default=0)
 
     def __str__(self):
         return self.name
 
+
 class TopCategory(models.Model):
     title = models.CharField(max_length=250, default='Some String')
     player = models.ForeignKey(Player, on_delete=models.CASCADE)
+
     def __str__(self):
         return self.title
+
 
 class Club(models.Model):
     name = models.CharField(max_length=250)
@@ -44,32 +47,19 @@ class Club(models.Model):
     def __str__(self):
         return self.name
 
+
 class Team(models.Model):
     name = models.CharField(max_length=250)
     coach_name = models.CharField(max_length=250)
-    #total_member = models.IntegerField()
-    #Ranking = models.IntegerField()
-    #logo = models.CharField(max_length=1000)
-    #slug = models.CharField(max_length=250)
-    # player_detail = models.ForeignKey(Player, on_delete=models.CASCADE)
     club = models.ForeignKey(Club, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
 
 
-# class Member(models.Model):
-#     name = models.CharField(max_length=250)
-#     Email = models.EmailField()
-#
-#     def __str__(self):
-#         return self.name
-
-
 class Tournament(models.Model):
     name = models.CharField(max_length=250)
     title = models.CharField(max_length=250)
-
 
     def __str__(self):
         return self.name
@@ -87,10 +77,9 @@ class Fixture(models.Model):
         (OneDay, 'One Day'),
         (Other, 'Other')
     )
-    time = models.TimeField(auto_now_add=True)
+    time = models.TimeField(null=True)
     date = models.DateField(null=True)
     team1 = models.ForeignKey(Team, related_name='team1', on_delete=models.CASCADE)
-    # team2 = models.ForeignKey(Team, related_name='team2', on_delete=models.CASCADE)
     team2 = models.CharField(max_length=250)
     venue = models.CharField(max_length=250)
     fixture_type = models.CharField(max_length=50, choices=FIXTURE_TYPE, default='Type')
@@ -111,10 +100,3 @@ class LatestNews(models.Model):
 
 class SliderImages(models.Model):
     image = models.ImageField(upload_to=upload_player_image, null=True, blank=True)
-
-# class UpCommingMatches(models.Model):
-#     title = models.CharField(max_length=250)
-#     date = models.DateField(null=True)
-#     team1 = models.CharField(max_length=250)
-#     team2 = models.CharField(max_length=250)
-#     time = models.TimeField()

@@ -5,6 +5,13 @@ def upload_player_image(instance, filename):
     return '{}/{}'.format("Players", '%s.jpg')
 
 
+class PlayerType(models.Model):
+    title = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.title
+
+
 class Player(models.Model):
     PLACE_CHOICES = (
         ('pakistan', 'PAKISTAN'),
@@ -12,20 +19,20 @@ class Player(models.Model):
         ('canada', 'CANADA'),
         ('Australia', 'AUSTRALIA'),
         ('dubai', 'DUBAI'),
+        ('norway', 'NORWAY'),
     )
     name = models.CharField(max_length=250, default='SOME STRING')
     dob = models.DateField(null=True)
-    birth_place = models.CharField(max_length=250, choices=PLACE_CHOICES, default='Select from drop down')
+    birth_place = models.CharField(max_length=250, choices=PLACE_CHOICES, default='norway')
     squad_no = models.IntegerField()
     bowling_style = models.CharField(max_length=250)
-    player_type = models.CharField(max_length=250)
+    player_type = models.ForeignKey(PlayerType, on_delete=models.CASCADE)
     image = models.ImageField(upload_to=upload_player_image, null=True, blank=True)
     total_matches = models.IntegerField(default=0)
     description = models.CharField(max_length=1000, default='SOME STRING')
     team = models.ForeignKey("Team", on_delete=models.CASCADE)
     email = models.EmailField(max_length=250, default='example@gmail.com')
-    phone_no = models.IntegerField(default=0)
-    Is_keeper = models.CharField(max_length=250, default=0)
+    phone_no = models.CharField(max_length=30, default='')
 
     def __str__(self):
         return self.name
@@ -34,6 +41,13 @@ class Player(models.Model):
 class TopCategory(models.Model):
     title = models.CharField(max_length=250, default='Some String')
     player = models.ForeignKey(Player, on_delete=models.CASCADE)
+    total_matches = models.IntegerField(default=0)
+    tournament = models.ForeignKey('Tournament', null=True, blank=True, on_delete=models.CASCADE)
+    total_wickets = models.IntegerField(default=0)
+    economy_rate = models.FloatField(default=0.0)
+    average = models.FloatField(default=0.0)
+    total_runs = models.IntegerField(default=0)
+    year = models.CharField(max_length=50, default='')
 
     def __str__(self):
         return self.title
@@ -82,7 +96,6 @@ class Fixture(models.Model):
     team1 = models.ForeignKey(Team, related_name='team1', on_delete=models.CASCADE)
     team2 = models.CharField(max_length=250)
     venue = models.CharField(max_length=250)
-    fixture_type = models.CharField(max_length=50, choices=FIXTURE_TYPE, default='Type')
     tournament = models.ForeignKey(Tournament, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -91,7 +104,7 @@ class Fixture(models.Model):
 
 class LatestNews(models.Model):
     title = models.CharField(max_length=250)
-    description = models.CharField(max_length=250)
+    description = models.TextField(null=True, blank=True)
     image = models.ImageField(upload_to=upload_player_image, null=True, blank=True)
 
     def __str__(self):

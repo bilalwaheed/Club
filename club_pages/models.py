@@ -1,3 +1,4 @@
+from ckeditor.fields import RichTextField
 from django.db import models
 
 
@@ -102,7 +103,7 @@ class Fixture(models.Model):
 
 class LatestNews(models.Model):
     title = models.CharField(max_length=250)
-    description = models.TextField(null=True, blank=True)
+    description = RichTextField(null=True, blank=True)
     image = models.ImageField(upload_to=upload_player_image, null=True, blank=True)
 
     def __str__(self):

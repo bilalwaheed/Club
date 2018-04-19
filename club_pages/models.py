@@ -96,6 +96,7 @@ class Fixture(models.Model):
     team2 = models.CharField(max_length=250)
     venue = models.CharField(max_length=250)
     tournament = models.ForeignKey(Tournament, on_delete=models.CASCADE)
+    fixture_type = models.CharField(max_length=250, choices=FIXTURE_TYPE, default=T20)
 
     def __str__(self):
         return str(self.id)
@@ -112,3 +113,44 @@ class LatestNews(models.Model):
 
 class SliderImages(models.Model):
     image = models.ImageField(upload_to=upload_player_image, null=True, blank=True)
+
+
+class SocialLink(models.Model):
+    FACEBOOK = 'facebook'
+    TWITTER = 'twitter'
+    INSTA = 'insta'
+    LINKEDIN = 'linkedin'
+
+    TITLE_CHOICES = (
+        (FACEBOOK, 'Facebook'),
+        (TWITTER, 'twitter'),
+        (INSTA, 'InstaGram'),
+        (LINKEDIN, 'LinkedIn')
+    )
+
+    title = models.CharField(max_length=50, choices=TITLE_CHOICES, default=FACEBOOK, unique=True)
+    font_awesome_icon_tag = models.CharField(max_length=30)
+    url = models.URLField()
+
+    def __str__(self):
+        return self.title
+
+
+class DynamicData(models.Model):
+    HOME = 'home'
+    ABOUT = 'about'
+    FOOTER_SECTION1 = 'footer1'
+    FOOTER_SECTION2 = 'footer2'
+
+    PAGE_DATA = (
+        (HOME, 'Home'),
+        (ABOUT, 'About'),
+        (FOOTER_SECTION1, 'Footer1'),
+        (FOOTER_SECTION2, 'Footer2'),
+    )
+
+    page_data = models.CharField(max_length=250, choices=PAGE_DATA, default=HOME)
+    text = RichTextField(null=True, blank=True)
+
+    def __str__(self):
+        return str(self.id)

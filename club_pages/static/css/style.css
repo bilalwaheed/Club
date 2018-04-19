@@ -273,6 +273,10 @@ margin-top:50px;
     padding-bottom: 20px;
 }
 @media only screen and (max-width: 995px) {
+    .col-name h1
+    {
+        width: 100% !important;
+    }
 
     .fotter-info-col .ul .Services-menu
     {

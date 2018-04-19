@@ -29,7 +29,7 @@
        <div class="container">
            <div class="row">
                 <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="latest-news--story-img"><img src="{{news_detail.image.url}}" alt="My image"/></div>
+                <div class="latest-news--story-img"><img style="    width: 300px; height: auto;" class="wow swing img-responsive"  src="{{news_detail.image.url}}" alt="My image"/></div>
                 </div>
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="latest-news--story-title">{{news_detail.title}}</div>
@@ -38,35 +38,6 @@
                     </div>
 
                 </div>
-               <div class="col-md-4 col-sm-6 col-xs-12">
-                       <section class="latest-news hidden-sm">
-                            <div class="container">
-                                <div class="latest-news--title-holder">
-                                    <h2 class="latest-news--title">Latest News</h2>
-                                </div>
-                            </div>
-                             {% for new in news %}
-                            <div class="lastest-news-story">
-
-                               <div class="container">
-                                   <div class="row">
-                                        <div class="col-md-4 col-sm-6 col-xs-12">
-                                        <div class="latest-news--story-img"><img style="width: 80px;" class="wow swing" src="{{new.image.url}}" alt="My image"/></div>
-                                        </div>
-                                        <div class="col-md-8 col-sm-6 col-xs-12">
-                                            <div class="latest-news--story-title" style="font-weight: 200;">{{new.title}}</div>
-                                            <div class="latest-news--story-date">2 Mar 2018</div>
-                                            <a style="    padding: 4px 20px;" class="latest-news--story-link" href="{% url 'news_detail' new.id %}">Read More</a>
-                                        </div>
-                                    </div>
-                               </div>
-
-                            </div>
-                            {% endfor %}
-
-                        </section>
-                </div>
-
             </div>
        </div>
     </div>

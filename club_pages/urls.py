@@ -1,14 +1,12 @@
 from django.urls import path
-from Club import settings
-from club_pages.views import index, fixtures_results, latest_news, home, team, detail, newsdetail
-from . import views
-from django.conf import settings
-from django.conf.urls.static import static
+
+from club_pages import views
+from club_pages.views import index, fixtures_results, latest_news, home, team, detail, newsdetail, BaseView
 from club_pages.views import members, about, ContactUsView
 
 urlpatterns = [
 
-    path('index',index, name='index'),
+    path('index', index, name='index'),
     path('members', members.as_view(), name='members'),
     path('about-us', about.as_view(), name='about-us'),
     path('contact-us', ContactUsView.as_view(), name='contactus'),
@@ -17,6 +15,8 @@ urlpatterns = [
     path('', home.as_view(), name='home'),
     path('team', team.as_view(), name='team'),
     path('detail/<int:pid>', detail.as_view(), name='detail'),
-    path('newsdetail/<int:nid>', newsdetail.as_view(), name='news_detail')
+    path('newsdetail/<int:nid>', newsdetail.as_view(), name='news_detail'),
+    path('success/', views.successView, name='success'),
+    path('base',BaseView.as_view(),name='baseview')
 
-    ]
+]

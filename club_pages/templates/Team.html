@@ -45,7 +45,7 @@
             <div class="col-md-4 player">
                 <div class="img-section">
                     <!--<a href="/club_pages/detail"> <img src="{% static 'images/p3.jpg' %}" alt="My image"/> </a>-->
-                    <a href="{% url 'detail' player.id %}"><img class="wow swing" src="{{player.image.url}}"> </a>
+                    <a href="{% url 'detail' player.id %}"><img style="width: 269px;height: auto;" class="wow swing img-responsive" src="{{player.image.url}}"> </a>
                 </div>
                 <div class="player--name">
                     {{ player.name }}

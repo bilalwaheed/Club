@@ -5,6 +5,7 @@
 <div class="responsive-slider" data-spy="responsive-slider" data-autoplay="true" data-interval="5000" data-transitiontime="300">
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-autoplay="true" data-interval="5000" data-transitiontime="300">
   <ol class="carousel-indicators">
+  <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
@@ -66,14 +67,9 @@
 
         <div class="col-md-12">
             <div class="basic-page--text home-page-text">
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                    and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
-                    leap into electronic typesetting, remaining essentially unchanged. </p>
-                <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-                    and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem
-                    Ipsum.</p>
-
+            {% if home_text %}
+                <p>{{ home_text.text|safe }}</p>
+            {% endif %}
             </div>
 
         </div>
@@ -128,7 +124,7 @@
             <div class="col-md-4 player">
                 <div class="img-section">
                     <!--<a href="/club_pages/detail"> <img src="{% static 'images/p3.jpg' %}" alt="My image"/> </a>-->
-                    <a href="{% url 'detail' tc.player.id %}"><img class="wow swing" src="{{tc.player.image.url}}"> </a>
+                    <a href="{% url 'detail' tc.player.id %}"><img  class="wow swing" src="{{tc.player.image.url}}"> </a>
                 </div>
                 <div class="player--name">
                     {{ tc.title }}
@@ -168,7 +164,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-sm-6 col-xs-12">
-                    <div class="latest-news--story-img"><img class="wow swing" src="{{new.image.url}}" alt="My image"/>
+                    <div class="latest-news--story-img"><img style="    width: 300px; height: auto;" class="wow swing img-responsive" src="{{new.image.url}}" alt="My image"/>
                     </div>
                 </div>
                 <div class="col-md-8 col-sm-6 col-xs-12 new-detail">

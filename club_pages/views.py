@@ -1,64 +1,132 @@
-import generic as generic
-from django.shortcuts import render, render_to_response
+# sendemail/views.py
+from django.core.mail import send_mail, BadHeaderError
+from django.http import HttpResponse
+from django.shortcuts import redirect
+from django.shortcuts import render
 from django.views import generic
 
+from Club import settings
 # Create your views here.
-from club_pages.models import Player, Fixture, LatestNews, SliderImages, TopCategory, Team
+from club_pages.models import Player, Fixture, LatestNews, SliderImages, TopCategory, Team, DynamicData
+from club_pages.utils import get_base_data
+from .forms import ContactForm
+
+
+class BaseView(generic.TemplateView):
+    template_name = 'base.html'
+
+    def get(self, request, *args, **kwargs):
+        dynamicdata = DynamicData.objects.all()
+        return render(request, self.template_name, {'dynamicdata': dynamicdata, })
 
 
 class ContactUsView(generic.TemplateView):
     template_name = 'ContactUs.html'
 
+    def post(self, request):
+        # import pdb;pdb.set_trace()
+        if request.method == 'GET':
+            form = ContactForm()
+        else:
+            form = ContactForm(request.POST)
+            if form.is_valid():
+                subject = form.cleaned_data['subject']
+                from_email = form.cleaned_data['from_email']
+                msg = form.cleaned_data['message']
+                name = form.cleaned_data['name']
+                # message = 'This is message'
+                message = "Name: " + name + "\n" + "From: " + from_email + "\n" + "Subject: " + subject + "\n" + "Message: " + msg
+                try:
+                    send_mail(subject, message, settings.DEFAULT_FROM_EMAIL, [settings.EMAIL_HOST_USER, ],
+                              fail_silently=False, )
+                except BadHeaderError:
+                    return HttpResponse('Invalid header found.')
+                return redirect('contactus')
+        context = get_base_data()
+        context['form']=form
+        return render(request, "contactUs.html", context)
+
+
 def index(request):
-    return render(request,'index.html', {})
+    return render(request, 'index.html', {})
+
 
 class members(generic.TemplateView):
     template_name = 'Members.html'
 
+
 class about(generic.TemplateView):
+    model = DynamicData
     template_name = 'About.html'
 
+    def get(self, request, *args, **kwargs):
+        dynamicdata = DynamicData.objects.filter(page_data=DynamicData.ABOUT).first()
+        context = get_base_data()
+        context['about_text'] = dynamicdata
+        return render(request, self.template_name, context)
+
+
 class fixtures_results(generic.TemplateView):
-     model = Fixture
-     template_name = 'Feature_Result.html'
-     def get(self, request, *args, **kwargs):
-         fixtures = Fixture.objects.all()
-         t_20 = Fixture.objects.filter(fixture_type='t20');
-         Test = Fixture.objects.filter(fixture_type='test');
-         Oneday = Fixture.objects.filter(fixture_type='oneday');
-         Other = Fixture.objects.filter(fixture_type='other');
-         return render(request, self.template_name, {'fixtures': fixtures, 't_20':t_20,'Test':Test,'Oneday':Oneday })
+    model = Fixture
+    template_name = 'Feature_Result.html'
+
+    def get(self, request, *args, **kwargs):
+        fixtures = Fixture.objects.all()
+        t_20 = Fixture.objects.filter(fixture_type='t20')
+        Test = Fixture.objects.filter(fixture_type='test')
+        Oneday = Fixture.objects.filter(fixture_type='oneday')
+        context = get_base_data()
+        context['fixtures'] =fixtures
+        context['t_20'] =t_20
+        context['Test'] =Test
+        context['Oneday'] =Oneday
+        return render(request, self.template_name, context)
+
 
 class latest_news(generic.TemplateView):
     model = LatestNews
     template_name = 'Latest_News.html'
+
     def get(self, request, *args, **kwargs):
         news = LatestNews.objects.all()
-        return render(request, self.template_name, {'news': news})
+        context = get_base_data()
+        context['news']=news
+        return render(request, self.template_name,context)
 
 
 class home(generic.TemplateView):
-    model = LatestNews, Fixture
+    model = LatestNews, Fixture, DynamicData
     template_name = 'Home.html'
-    #render_to_response(template_name)
+
+    # render_to_response(template_name)
     def get(self, request, *args, **kwargs):
         news = LatestNews.objects.all()
         sliderImages = SliderImages.objects.all()
         top_category = TopCategory.objects.all()
-        # upcomming_mathes = UpCommingMatches.objects.all()
+        dynamicdata = DynamicData.objects.filter(page_data=DynamicData.HOME).first()
         upcomming_mathes = Fixture.objects.all().order_by('-time')[:3]
-        return render(request, self.template_name, {'news': news,'sliderImages': sliderImages,'top_category': top_category,'upcomming_mathes':upcomming_mathes})
+        context = get_base_data()
+        context['news'] = news
+        context['sliderImages'] = sliderImages
+        context['top_category'] = top_category
+        context['home_text'] = dynamicdata
+        context['upcomming_mathes'] = upcomming_mathes
+        return render(request, self.template_name,context)
 
 
 class team(generic.TemplateView):
     template_name = 'Team.html'
+
     # render_to_response(template_name)
     def get(self, request, *args, **kwargs):
         players = Player.objects.all()
         first_team = Team.objects.all()[:1]
         teams = Team.objects.all()[0:]
-
-        return  render(request, self.template_name,{'players':players , 'first_team':first_team, 'teams': teams})
+        context = get_base_data()
+        context['players'] = players
+        context['first_team'] = first_team
+        context['teams'] = teams
+        return render(request, self.template_name,context)
 
 
 class detail(generic.TemplateView):
@@ -68,12 +136,12 @@ class detail(generic.TemplateView):
     def get(self, request, *args, **kwargs):
         pid = kwargs.get('pid')
         player_detail = Player.objects.get(id=pid)
-        return render(request, self.template_name, {'player_detail': player_detail})
-
+        context = get_base_data()
+        context['player_detail'] = player_detail
+        return render(request, self.template_name,context)
 
 
 class newsdetail(generic.TemplateView):
-
     model = LatestNews
 
     template_name = 'News_Detail.html'
@@ -82,7 +150,12 @@ class newsdetail(generic.TemplateView):
         nid = kwargs.get('nid')
         news_detail = LatestNews.objects.get(id=nid)
         news = LatestNews.objects.all()
-        return render(request, self.template_name, {'news_detail': news_detail, 'news': news})
+        context = get_base_data()
+        context['news_detail'] = news_detail
+        context['news'] = news
+
+        return render(request, self.template_name,context)
+
 
 class topcategory(generic.TemplateView):
     model = TopCategory
@@ -91,7 +164,10 @@ class topcategory(generic.TemplateView):
     def get(self, request, *args, **kwargs):
         top_category = TopCategory.objects.all()
         # players = Player.objects.all()
+        context = get_base_data()
+        context['top_category'] = top_category
+        return render(request, self.template_name,context)
 
-        return render(request, self.template_name, {'top_category': top_category})
 
-
+def successView(request):
+    return HttpResponse('Success! Thank you for your message.')

@@ -280,7 +280,7 @@ margin-top:50px;
 
     .fotter-info-col .ul .Services-menu
     {
-            margin-left: -38px;
+            margin-left: 0px;
     }
     .new-menu
     {
@@ -657,4 +657,10 @@ margin-left: 70px;
 .view-more-btn
 {
     padding-top: 20px;
+}
+
+.carousel-indicators .active
+{
+ width: 1600px !important;
+    height: 550px !important;
 }

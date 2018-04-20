@@ -114,6 +114,8 @@ class LatestNews(models.Model):
 class SliderImages(models.Model):
     image = models.ImageField(upload_to=upload_player_image, null=True, blank=True)
 
+    def __str__(self):
+        return str(self.id)
 
 class SocialLink(models.Model):
     FACEBOOK = 'facebook'

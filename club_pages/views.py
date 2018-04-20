@@ -12,12 +12,12 @@ from club_pages.utils import get_base_data
 from .forms import ContactForm
 
 
-class BaseView(generic.TemplateView):
-    template_name = 'base.html'
-
-    def get(self, request, *args, **kwargs):
-        dynamicdata = DynamicData.objects.all()
-        return render(request, self.template_name, {'dynamicdata': dynamicdata, })
+# class BaseView(generic.TemplateView):
+#     template_name = 'base.html'
+#
+#     def get(self, request, *args, **kwargs):
+#         dynamicdata = DynamicData.objects.all()
+#         return render(request, self.template_name, {'dynamicdata': dynamicdata, })
 
 
 class ContactUsView(generic.TemplateView):

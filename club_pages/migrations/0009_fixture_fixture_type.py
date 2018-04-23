@@ -13,6 +13,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='fixture',
             name='fixture_type',
-            field=models.CharField(choices=[('t20', 'T20'), ('test', 'Test'), ('oneday', 'One Day'), ('other', 'Other')], default='t20', max_length=2),
+            field=models.CharField(choices=[('t20', 'T20'), ('test', 'Test'), ('oneday', 'One Day'), ('other', 'Other')], default='t20', max_length=20),
         ),
     ]

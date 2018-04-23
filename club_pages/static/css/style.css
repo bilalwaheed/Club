@@ -358,9 +358,13 @@ margin-top:50px;
 {
     display: block;
 }
-.responsive-slider
+#carouselExampleIndicators
 {
     display: none !important;
+}
+.responsive-slider
+{
+
 }
 .latest-news--story-img
 {

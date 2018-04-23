@@ -2,15 +2,13 @@
 {% load staticfiles %}
 {% block content %}
 
-<div class="responsive-slider" data-spy="responsive-slider" data-autoplay="true" data-interval="5000" data-transitiontime="300">
+
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-autoplay="true" data-interval="5000" data-transitiontime="300">
-  <ol class="carousel-indicators">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
   </ol>
-
   <div class="carousel-inner" role="listbox">
     {% for sliderimg in sliderImages %}
       {% if forloop.first %}
@@ -27,9 +25,6 @@
     {% endfor %}
   </div>
 
-
-
-
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
@@ -39,27 +34,6 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <div class="container title-bottom-section">
@@ -171,7 +145,7 @@
                     <div class="latest-news--story-title">{{new.title}}</div>
                     <div class="latest-news--story-date">2 Mar 2018</div>
                     <div class="latest-news--story-text">
-                        {{new.description}}
+                        {{new.description|safe}}
                     </div>
                     <a class="latest-news--story-link" href="{% url 'news_detail' new.id %}">Read More</a>
                 </div>

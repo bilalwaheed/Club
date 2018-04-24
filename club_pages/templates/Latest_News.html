@@ -29,13 +29,13 @@
        <div class="container">
            <div class="row">
                 <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="latest-news--story-img"><img style="    width: 300px; height: auto;" class="wow swing img-responsive" src="{{new.image.url}}" alt="My image"/></div>
+                <div class="latest-news--story-img"><img style="width: 300px; height: auto;" class="wow swing img-responsive" src="{{new.image.url}}" alt="My image"/></div>
                 </div>
                 <div class="col-md-8 col-sm-6 col-xs-12">
                     <div class="latest-news--story-title">{{new.title}}</div>
                     <div class="latest-news--story-date">2 Mar 2018</div>
                     <div class="latest-news--story-text">
-                        {{new.description}}
+                        {{new.description|safe}}
                     </div>
                     <a class="latest-news--story-link" href="{% url 'news_detail' new.id %}">Read More</a>
                 </div>

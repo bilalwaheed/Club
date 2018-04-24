@@ -1,4 +1,3 @@
-# sendemail/views.py
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse
 from django.shortcuts import redirect
@@ -7,17 +6,9 @@ from django.views import generic
 
 from Club import settings
 # Create your views here.
-from club_pages.models import Player, Fixture, LatestNews, SliderImages, TopCategory, Team, DynamicData
+from club_pages.models import Player, Fixture, LatestNews, SliderImages, TopCategory, Team, DynamicData, Sponser
 from club_pages.utils import get_base_data
 from .forms import ContactForm
-
-
-# class BaseView(generic.TemplateView):
-#     template_name = 'base.html'
-#
-#     def get(self, request, *args, **kwargs):
-#         dynamicdata = DynamicData.objects.all()
-#         return render(request, self.template_name, {'dynamicdata': dynamicdata, })
 
 
 class ContactUsView(generic.TemplateView):
@@ -43,7 +34,7 @@ class ContactUsView(generic.TemplateView):
                     return HttpResponse('Invalid header found.')
                 return redirect('contactus')
         context = get_base_data()
-        context['form']=form
+        context['form'] = form
         return render(request, "contactUs.html", context)
 
 
@@ -76,10 +67,10 @@ class fixtures_results(generic.TemplateView):
         Test = Fixture.objects.filter(fixture_type='test')
         Oneday = Fixture.objects.filter(fixture_type='oneday')
         context = get_base_data()
-        context['fixtures'] =fixtures
-        context['t_20'] =t_20
-        context['Test'] =Test
-        context['Oneday'] =Oneday
+        context['fixtures'] = fixtures
+        context['t_20'] = t_20
+        context['Test'] = Test
+        context['Oneday'] = Oneday
         return render(request, self.template_name, context)
 
 
@@ -90,34 +81,33 @@ class latest_news(generic.TemplateView):
     def get(self, request, *args, **kwargs):
         news = LatestNews.objects.all()
         context = get_base_data()
-        context['news']=news
-        return render(request, self.template_name,context)
+        context['news'] = news
+        return render(request, self.template_name, context)
 
 
 class home(generic.TemplateView):
     model = LatestNews, Fixture, DynamicData
     template_name = 'Home.html'
 
-    # render_to_response(template_name)
     def get(self, request, *args, **kwargs):
         news = LatestNews.objects.all()
         sliderImages = SliderImages.objects.all()
         top_category = TopCategory.objects.all()
         dynamicdata = DynamicData.objects.filter(page_data=DynamicData.HOME).first()
         upcomming_mathes = Fixture.objects.all().order_by('-time')[:3]
+
         context = get_base_data()
         context['news'] = news
         context['sliderImages'] = sliderImages
         context['top_category'] = top_category
         context['home_text'] = dynamicdata
         context['upcomming_mathes'] = upcomming_mathes
-        return render(request, self.template_name,context)
+        return render(request, self.template_name, context)
 
 
 class team(generic.TemplateView):
     template_name = 'Team.html'
 
-    # render_to_response(template_name)
     def get(self, request, *args, **kwargs):
         players = Player.objects.all()
         first_team = Team.objects.all()[:1]
@@ -126,7 +116,7 @@ class team(generic.TemplateView):
         context['players'] = players
         context['first_team'] = first_team
         context['teams'] = teams
-        return render(request, self.template_name,context)
+        return render(request, self.template_name, context)
 
 
 class detail(generic.TemplateView):
@@ -138,7 +128,7 @@ class detail(generic.TemplateView):
         player_detail = Player.objects.get(id=pid)
         context = get_base_data()
         context['player_detail'] = player_detail
-        return render(request, self.template_name,context)
+        return render(request, self.template_name, context)
 
 
 class newsdetail(generic.TemplateView):
@@ -154,7 +144,7 @@ class newsdetail(generic.TemplateView):
         context['news_detail'] = news_detail
         context['news'] = news
 
-        return render(request, self.template_name,context)
+        return render(request, self.template_name, context)
 
 
 class topcategory(generic.TemplateView):
@@ -163,10 +153,9 @@ class topcategory(generic.TemplateView):
 
     def get(self, request, *args, **kwargs):
         top_category = TopCategory.objects.all()
-        # players = Player.objects.all()
         context = get_base_data()
         context['top_category'] = top_category
-        return render(request, self.template_name,context)
+        return render(request, self.template_name, context)
 
 
 def successView(request):

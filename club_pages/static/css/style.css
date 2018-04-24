@@ -272,7 +272,7 @@ margin-top:50px;
 {
     padding-bottom: 20px;
 }
-@media only screen and (max-width: 995px) {
+@media only screen and (min-width: 350px) and (max-width: 995px) {
     .col-name h1
     {
         width: 100% !important;
@@ -280,7 +280,7 @@ margin-top:50px;
 
     .fotter-info-col .ul .Services-menu
     {
-            margin-left: 0px;
+            margin-left: 0px !important;
     }
     .new-menu
     {
@@ -620,9 +620,12 @@ input:focus::-webkit-input-placeholder {
 .col-name h1
 {
         font-weight: bold;
+
         color: white;
             margin: auto;
-    width: 1140px;
+        width: 100% ;
+    padding-top: 10px;
+    padding-bottom: 10px;
 
     background-color: #0C4DA2;
 }

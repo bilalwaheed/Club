@@ -693,20 +693,20 @@ margin-left: 70px;
 {
     .title-bottom-section
     {
-        padding-top: 61px !important;
+        padding-top: 60px !important;
     }
 }
 @media only screen and (min-width: 700px) and (max-width: 800px)
 {
     .title-bottom-section
     {
-        padding-top: 98px !important;
+        padding-top: 100px !important;
     }
 }
 @media only screen and (min-width: 800px) and (max-width: 995px)
 {
     .title-bottom-section
     {
-        padding-top: 151px !important;
+        padding-top: 150px !important;
     }
 }

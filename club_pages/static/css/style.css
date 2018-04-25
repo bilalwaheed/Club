@@ -710,3 +710,31 @@ margin-left: 70px;
         padding-top: 150px !important;
     }
 }
+@media only screen and (min-width: 360px) and (max-width: 600px)
+{
+ .latest-news
+ {
+     margin-top: 160px !important;
+ }
+}
+@media only screen and (min-width: 600px) and (max-width: 765px)
+{
+ .latest-news
+ {
+     margin-top: 218px !important;
+ }
+}
+@media only screen and (min-width: 765px) and (max-width: 996px)
+{
+ .latest-news
+ {
+     margin-top: 318px !important;
+ }
+}
+@media (max-width: 991px) and (min-width: 768px)
+{
+    .hidden-sm
+    {
+            display: block !important;
+    }
+}

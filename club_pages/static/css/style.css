@@ -691,19 +691,22 @@ margin-left: 70px;
 }
 @media only screen and (min-width: 550px) and (max-width: 700px)
 {
-    .title-bottom-section{
-        padding-top: 60px !important;
+    .title-bottom-section
+    {
+        padding-top: 61px !important;
     }
 }
 @media only screen and (min-width: 700px) and (max-width: 800px)
 {
-    .title-bottom-section{
-        padding-top: 100px !important;
+    .title-bottom-section
+    {
+        padding-top: 98px !important;
     }
 }
 @media only screen and (min-width: 800px) and (max-width: 995px)
 {
-    .title-bottom-section{
-        padding-top: 150px !important;
+    .title-bottom-section
+    {
+        padding-top: 151px !important;
     }
 }

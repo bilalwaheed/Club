@@ -733,3 +733,7 @@ margin-left: 70px;
             display: block !important;
     }
 }
+.mbl-slider
+{
+        text-align: -webkit-center !important;
+}

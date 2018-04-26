@@ -668,11 +668,6 @@ margin-left: 70px;
     padding-top: 20px;
 }
 
-.carousel-indicators .active
-{
- width: 1600px !important;
-    height: 550px !important;
-}
 @media only screen and (min-width: 770px) and (max-width: 993px)
 {
 

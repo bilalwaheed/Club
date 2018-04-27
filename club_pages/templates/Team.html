@@ -40,7 +40,7 @@
         <!--<div id="menu-{{team.id}}" class="tab-pane fade {% if teams.id == 0 %} in active {% endif %}">-->
         <!--<div id="menu-{{team.id}}" class="tab-pane fade {{ forloop.counter }}in active">-->
         <!--<div id="menu-{{team.id}}" class="tab-pane fade {% if forloop.first %}{% endif %} in active">-->
-        <div id="menu-{{team.id}}" class="tab-pane fade {% if forloop.counter0 %}active{% endif %} ">
+        <div id="menu-{{team.id}}" class="tab-pane fade in active {% if forloop.counter0 %}active{% endif %} ">
             {% for player in team.player_set.all %}
             <div class="col-md-4 player">
                 <div class="img-section">

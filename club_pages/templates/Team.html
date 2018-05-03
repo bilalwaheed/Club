@@ -44,8 +44,7 @@
             {% for player in team.player_set.all %}
             <div class="col-md-4 player">
                 <div class="img-section">
-                    <!--<a href="/club_pages/detail"> <img src="{% static 'images/p3.jpg' %}" alt="My image"/> </a>-->
-                    <img style="width: 269px;height: auto;" class="wow swing img-responsive" src="{{player.image.url}}">
+                    <img class="wow swing img-responsive" src="{{player.image.url}}">
                 </div>
                 <div class="player--name">
                     {{ player.name }}
@@ -55,7 +54,7 @@
                         {{player.dob}}
                     </time>
                     </span></div>
-                    <div class="player--info-text"><strong>Birthplace: </strong><span>{{ player.birth_place }}</span>
+                    <div class="player--info-text"><strong>Birthplace: </strong><span>{{ player.get_birth_place_display }}</span>
                     </div>
                     <div class="player--info-text"><strong>Squad Number: </strong><span>{{ player.squad_no }}</span>
                     </div>

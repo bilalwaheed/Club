@@ -122,12 +122,38 @@
                                 {{ tc.player.name }}
                             </time>
                     </span></div>
-                            <div class="player--info-text"><strong>Total
-                                Matches: </strong><span>{{ tc.player.total_matches }}</span></div>
-                            <div class="player--info-text">
-                                <strong>Score: </strong><span>{{ tc.player.total_runs }}</span></div>
-                            <div class="player--info-text">
-                                <strong>Average: </strong><span>{{ tc.player.average }} </span></div>
+
+                            {% if tc.tournament %}
+                                <div class="player--info-text">
+                                    <strong>Tournament: </strong><span>{{ tc.tournament }}</span>
+                                </div>
+                            {% endif %}
+                            {% if tc.total_matches %}
+                                <div class="player--info-text"><strong>Total
+                                    Matches: </strong><span>{{ tc.total_matches }}</span>
+                                </div>
+
+                            {% endif %}
+                            {% if tc.total_wickets %}
+                                <div class="player--info-text">
+                                    <strong>Total Wickets: </strong><span>{{ tc.total_wickets }}</span>
+                                </div>
+                            {% endif %}
+                            {% if tc.economy_rate %}
+                                <div class="player--info-text">
+                                    <strong>Economy Rate: </strong><span>{{ tc.economy_rate }} </span>
+                                </div>
+                            {% endif %}
+                            {% if tc.average %}
+                                <div class="player--info-text">
+                                    <strong>Average: </strong><span>{{ tc.average }} </span>
+                                </div>
+                            {% endif %}
+                            {% if tc.total_runs %}
+                                <div class="player--info-text">
+                                    <strong>Total Runs: </strong><span>{{ tc.total_runs }} </span>
+                                </div>
+                            {% endif %}
 
 
                         </div>

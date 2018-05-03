@@ -68,7 +68,7 @@ class fixtures_results(generic.TemplateView):
     template_name = 'Feature_Result.html'
 
     def get(self, request, *args, **kwargs):
-        fixtures = Fixture.objects.all()
+        fixtures = Fixture.objects.all().order_by('date')
         context = get_base_data()
         context['fixtures'] = fixtures
         context['fixture_types'] = FixtureType.objects.all()

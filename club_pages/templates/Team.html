@@ -41,7 +41,7 @@
         <!--<div id="menu-{{team.id}}" class="tab-pane fade {{ forloop.counter }}in active">-->
         <!--<div id="menu-{{team.id}}" class="tab-pane fade {% if forloop.first %}{% endif %} in active">-->
         <div id="menu-{{team.id}}" class="tab-pane fade in active {% if forloop.counter0 %}active{% endif %} ">
-            {% for player in team.player_set.all %}
+            {% for player in team.player_set.all|dictsort:"name" %}
             <div class="col-md-4 player">
                 <div class="img-section">
                     <img class="wow swing img-responsive team-player" src="{{player.image.url}}">

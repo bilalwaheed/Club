@@ -44,7 +44,7 @@
             {% for player in team.player_set.all %}
             <div class="col-md-4 player">
                 <div class="img-section">
-                    <img class="wow swing img-responsive" src="{{player.image.url}}">
+                    <img class="wow swing img-responsive team-player" src="{{player.image.url}}">
                 </div>
                 <div class="player--name">
                     {{ player.name }}

@@ -68,7 +68,7 @@
                     <div class="col-md-4" style="text-align: center;">
                         <div class="con">
                             <div class="title-head">
-                                <h2>{{ up.fixture_type }}</h2>
+                                <h2>{{ up.tournament.title }}</h2>
                             </div>
                             <div class="teams">
                                 <div class="team1" style="float: left">
@@ -109,8 +109,8 @@
                     <div class="col-md-4 player">
                         <div class="img-section">
                             <!--<a href="/club_pages/detail"> <img src="{% static 'images/p3.jpg' %}" alt="My image"/> </a>-->
-                            <a href="{% url 'detail' tc.player.id %}"><img class="wow swing img-responsive"
-                                                                           src="{{ tc.player.image.url }}"> </a>
+                            <img class="wow swing img-responsive"
+                                                                           src="{{ tc.player.image.url }}">
                         </div>
                         <div class="player--name">
                             {{ tc.title }}

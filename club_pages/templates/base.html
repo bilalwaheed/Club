@@ -107,8 +107,9 @@
                 <div class="item active">
                     <div class="row">
                         {% for sponser in sponsers %}
-                            <div class="col-xs-3"><a href="#"><img src="{{ sponser.image.url }}"
-                                                                   class="img-responsive"></a></div>
+                            <div class="col-xs-3"><a href="{{ sponser.url }}" target="_blank"><img
+                                    src="{{ sponser.image.url }}"
+                                    class="img-responsive"></a></div>
                         {% endfor %}
                     </div>
                 </div>
@@ -141,9 +142,11 @@
             <div style="text-align:  center;" class="col-md-12">
                 {% for sponser in sponsers %}
                     <div class="mb-5 flex-center">
-                        <!--Facebook-->
-                        <a class="fb-ic"><img class="img-responsive" style="width:150px;height: auto"
-                                              src="{{ sponser.image.url }}" alt="My image"/></a>
+
+                        <a class="fb-ic" href="{{ sponser.url }}" target="_blank"><img class="img-responsive"
+                                                                                       style="width:150px;height: auto"
+                                                                                       src="{{ sponser.image.url }}"
+                                                                                       alt="My image"/></a>
 
                     </div>
                 {% endfor %}
@@ -184,15 +187,32 @@
                         <h3>Contact Info</h3>
                     </div>
                     <div class="ul">
+                        <p>
                         <ul class="Services-menu">
-                            <li><i class="fa fa-map-marker" aria-hidden="true"></i>xyz-xzy</li>
-                            <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a style="color: white;" href="#">example@gmail.com</a>
-                            </li>
-                            <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a style="color: white;" href="#">example@gmail.com</a>
-                            </li>
-                            <li><i class="fa fa-phone" aria-hidden="true"></i> <a style="color: white;" href="#">111-111-111</a>
-                            </li>
+
+                            {% if email %}
+                                <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a style="color: white;"
+                                                                                           href="#">{{ email.text|safe }}</a>
+                                </li>
+                            {% endif %}
+                            {% if phone %}
+                                <li><i class="fa fa-phone" aria-hidden="true"></i> <a style="color: white;"
+                                                                                      href="#">{{ email.text|safe }}</a>
+                                </li>
+                            {% endif %}
                         </ul>
+                        </p>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="ul">
+                            <ul class="Services-menu socail-links">
+                                {% for social_link in social %}
+                                    <li><a href="{{ social_link.url }}" target="_blank"><i
+                                            class="fa {{ social_link.font_awesome_icon_tag }}"
+                                            aria-hidden="true"></i></a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -219,14 +239,7 @@
                     </div>
                     <div class="ul">
                         <ul class="Services-menu socail-links">
-
                             <p style="text-align: left !important;    padding-top: 0px;">{{ footer2.text|safe }}</p>
-
-
-                            {% for social_link in social %}
-                                <li><a href={{ social_link.url }}><i class="fa {{ social_link.font_awesome_icon_tag }}"
-                                                                     aria-hidden="true"></i></a></li>
-                            {% endfor %}
 
                         </ul>
                     </div>
@@ -247,10 +260,7 @@
             <!--Grid column-->
             <div class="col-md-8 col-12 mt-5">
                 <p style="line-height: 1.7rem;color:white !important;    padding-left: 20px;
-    text-align: left;">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
-                    totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae
-                    vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit
-                    aut fugit, sed quia consequuntur.</p>
+    text-align: left;">{{ footer3.text|safe }}</p>
 
             </div>
             <!--Grid column-->
@@ -272,7 +282,7 @@
     <!--Copyright-->
     <div class="footer-copyright py-3 text-center" style="background-color: #1769E3 !important;">
         <div class="container-fluid">
-            © 2018 Copyright: <a href="https://mdbootstrap.com/material-design-for-bootstrap/"> Dottech.com </a>
+            © 2018 Copyright: <a href="{% url 'home' %}"> Holmliack.no </a>
             <!--<a href="#" class="scrollup">Scroll <br>Up</a>-->
             <a href="#" class="scrollup"><img src="{% static 'images/scroll.png' %}" alt="My image"/></a>
         </div>

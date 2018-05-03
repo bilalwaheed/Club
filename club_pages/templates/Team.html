@@ -45,7 +45,7 @@
             <div class="col-md-4 player">
                 <div class="img-section">
                     <!--<a href="/club_pages/detail"> <img src="{% static 'images/p3.jpg' %}" alt="My image"/> </a>-->
-                    <a href="{% url 'detail' player.id %}"><img style="width: 269px;height: auto;" class="wow swing img-responsive" src="{{player.image.url}}"> </a>
+                    <img style="width: 269px;height: auto;" class="wow swing img-responsive" src="{{player.image.url}}">
                 </div>
                 <div class="player--name">
                     {{ player.name }}
@@ -59,10 +59,9 @@
                     </div>
                     <div class="player--info-text"><strong>Squad Number: </strong><span>{{ player.squad_no }}</span>
                     </div>
-                    <div class="player--info-text"><strong>Bowling
-                        Style: </strong><span>{{ player.bowling_style }} </span></div>
-                    <div class="player--info-text"><strong>Batting
-                        Style: </strong><span>{{ player.batting_style }}</span></div>
+
+                    <div class="player--info-text"><strong>Player
+                        Style: </strong><span>{{ player.player_type }} </span></div>
 
                 </div>
 

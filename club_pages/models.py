@@ -117,6 +117,7 @@ class SliderImages(models.Model):
     def __str__(self):
         return str(self.id)
 
+
 class SocialLink(models.Model):
     FACEBOOK = 'facebook'
     TWITTER = 'twitter'
@@ -143,12 +144,18 @@ class DynamicData(models.Model):
     ABOUT = 'about'
     FOOTER_SECTION1 = 'footer1'
     FOOTER_SECTION2 = 'footer2'
+    FOOTER_SECTION3 = 'footer3'
+    EMAIL = 'email'
+    PHONE = 'phone'
 
     PAGE_DATA = (
         (HOME, 'Home'),
         (ABOUT, 'About'),
         (FOOTER_SECTION1, 'Footer1'),
         (FOOTER_SECTION2, 'Footer2'),
+        (FOOTER_SECTION3, 'Footer3'),
+        (EMAIL, 'Email'),
+        (PHONE, 'Phone'),
     )
 
     page_data = models.CharField(max_length=250, choices=PAGE_DATA, default=HOME)
@@ -156,8 +163,11 @@ class DynamicData(models.Model):
 
     def __str__(self):
         return str(self.id)
+
+
 class Sponser(models.Model):
     image = models.ImageField(upload_to=upload_player_image, null=True, blank=True)
+    url = models.URLField(null=True, blank=True)
 
     def __str__(self):
         return str(self.id)

@@ -37,6 +37,10 @@ class ContactUsView(generic.TemplateView):
         context['form'] = form
         return render(request, "contactUs.html", context)
 
+    def get(self, request, *args, **kwargs):
+        context = get_base_data()
+        return render(request, self.template_name, context)
+
 
 def index(request):
     return render(request, 'index.html', {})

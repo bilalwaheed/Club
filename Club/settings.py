@@ -28,15 +28,15 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'bilalwaheed919@gmail.com'
+EMAIL_HOST_USER = 'holmlia.cc@gmail.com'
 EMAIL_HOST_PASSWORD = 'dingdongb1'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-DEFAULT_FROM_EMAIL = 'Bilal Waheed <bilalwaheed919@gmail.com>'
+DEFAULT_FROM_EMAIL = 'holmlia <holmlia.cc@gmail.com>'
 
 ADMINS = (
-    ('Shbz', 'bilalwaheed919@gmail.com'),
+    ('holmlia', 'holmlia.cc@gmail.com'),
 )
 MANAGERS = ADMINS
 

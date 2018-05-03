@@ -200,13 +200,11 @@ margin-bottom: 40px;
     font-weight: bold;
     color: white;
     font-weight: bold;
-    width: 270px;
 }
 .player .matchHeight
 {
     border: 1px solid;
     padding: 20px 20px;
-    width: 270px;
 }
 .player--info-text
 {

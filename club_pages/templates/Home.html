@@ -97,6 +97,7 @@
             </div>
         </div>
     </section>
+
     <div class="container">
         <div class="section--sep section--sep__sm"></div>
     </div>
@@ -108,12 +109,13 @@
                     <div class="col-md-4 player">
                         <div class="img-section">
                             <!--<a href="/club_pages/detail"> <img src="{% static 'images/p3.jpg' %}" alt="My image"/> </a>-->
-                            <a href="{% url 'detail' tc.player.id %}"><img class="wow swing"
+                            <a href="{% url 'detail' tc.player.id %}"><img class="wow swing img-responsive"
                                                                            src="{{ tc.player.image.url }}"> </a>
                         </div>
                         <div class="player--name">
                             {{ tc.title }}
                         </div>
+
                         <div class="player--info matchHeight">
                             <div class="player--info-text"><strong>Name: </strong><span><time
                                     datetime="1994-07-08T12:00:00Z">

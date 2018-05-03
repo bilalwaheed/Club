@@ -197,7 +197,7 @@
                             {% endif %}
                             {% if phone %}
                                 <li><i class="fa fa-phone" aria-hidden="true"></i> <a style="color: white;"
-                                                                                      href="#">{{ email.text|safe }}</a>
+                                                                                      href="#">{{ phone.text|safe }}</a>
                                 </li>
                             {% endif %}
                         </ul>
@@ -283,7 +283,6 @@
     <div class="footer-copyright py-3 text-center" style="background-color: #1769E3 !important;">
         <div class="container-fluid">
             © 2018 Copyright: <a href="{% url 'home' %}"> Holmliack.no </a>
-            <!--<a href="#" class="scrollup">Scroll <br>Up</a>-->
             <a href="#" class="scrollup"><img src="{% static 'images/scroll.png' %}" alt="My image"/></a>
         </div>
     </div>

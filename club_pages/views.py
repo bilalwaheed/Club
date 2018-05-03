@@ -2,6 +2,7 @@ from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.shortcuts import render
+from django.utils import timezone
 from django.views import generic
 
 from Club import settings
@@ -94,7 +95,7 @@ class home(generic.TemplateView):
         sliderImages = SliderImages.objects.all()
         top_category = TopCategory.objects.all()
         dynamicdata = DynamicData.objects.filter(page_data=DynamicData.HOME).first()
-        upcomming_mathes = Fixture.objects.all().order_by('-time')[:3]
+        upcomming_mathes = Fixture.objects.filter(date__gt=timezone.now().date()).order_by('date')[:3]
 
         context = get_base_data()
         context['news'] = news

@@ -27,7 +27,7 @@
                 <ul class="nav nav-pills">
                     <li class="active in active"><a data-toggle="pill" href="#menu3">All</a></li>
                     {% for fixture_type in fixture_types %}
-                        <li><a data-toggle="pill" href="#{{ fixture_type.title }}">{{ fixture_type.title }}</a></li>
+                        <li><a data-toggle="pill" href="#{{ fixture_type.name }}">{{ fixture_type.title }}</a></li>
                     {% endfor %}
 
                 </ul>
@@ -35,7 +35,7 @@
                 <div class="tab-content">
 
                     {% for fixture_type in fixture_types %}
-                        <div id="{{ fixture_type.title }}" class="tab-pane fade ">
+                        <div id="{{ fixture_type.name }}" class="tab-pane fade ">
                             {% for t20 in fixture_type.fixture_set.all %}
                                 <div class="results row revealup fixture-strip--">
 

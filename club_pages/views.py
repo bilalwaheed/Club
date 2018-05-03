@@ -8,7 +8,7 @@ from django.views import generic
 from Club import settings
 # Create your views here.
 from club_pages.models import Player, Fixture, LatestNews, SliderImages, TopCategory, Team, DynamicData, Sponser, \
-    FixtureType
+    FixtureType, Tournament
 from club_pages.utils import get_base_data
 from .forms import ContactForm
 
@@ -71,7 +71,7 @@ class fixtures_results(generic.TemplateView):
         fixtures = Fixture.objects.all().order_by('date')
         context = get_base_data()
         context['fixtures'] = fixtures
-        context['fixture_types'] = FixtureType.objects.all()
+        context['fixture_types'] = Tournament.objects.all()
         return render(request, self.template_name, context)
 
 

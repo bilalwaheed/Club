@@ -1,205 +1,136 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block content %}
-<div class="wide title-bar-bg animated zoomIn">
-<img class="img-responsive" src="{% static 'images/fix.jpg' %}" style="    width: 100%;height: auto"/>
-<div class="container title-bar">
-    <div class="container">
-        <div class="row">
+    <div class="wide title-bar-bg animated zoomIn">
+        <img class="img-responsive" src="{% static 'images/fix.jpg' %}" style="    width: 100%;height: auto"/>
+        <div class="container title-bar">
+            <div class="container">
+                <div class="row">
 
-            <div class="col-md-12">
-                <div class="text-center title">
-                    <h1 class="title-heading"></h1>
+                    <div class="col-md-12">
+                        <div class="text-center title">
+                            <h1 class="title-heading"></h1>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-
-        </div>
+        </div><!-- /.container -->
     </div>
-</div><!-- /.container -->
-</div>
-<section class="latest-news fixture-latest-news hidden-sm">
-    <div class="container">
-        <div class="latest-news--title-holder">
-            <h2 class="latest-news--title">FIXTURES & RESULTS</h2>
-        </div>
+    <section class="latest-news fixture-latest-news hidden-sm">
         <div class="container">
+            <div class="latest-news--title-holder">
+                <h2 class="latest-news--title">FIXTURES & RESULTS</h2>
+            </div>
+            <div class="container">
 
-              <ul class="nav nav-pills">
-                <li class="active in active"><a data-toggle="pill" href="#menu3">All</a></li>
-                <li ><a data-toggle="pill" href="#home">T-20</a></li>
-                <li><a data-toggle="pill" href="#menu1">One Day</a></li>
-                <li><a data-toggle="pill" href="#menu2">Test</a></li>
+                <ul class="nav nav-pills">
+                    <li class="active in active"><a data-toggle="pill" href="#menu3">All</a></li>
+                    {% for fixture_type in fixture_types %}
+                        <li><a data-toggle="pill" href="#{{ fixture_type.title }}">{{ fixture_type.title }}</a></li>
+                    {% endfor %}
 
-              </ul>
+                </ul>
 
-              <div class="tab-content">
-                <div id="home" class="tab-pane fade ">
-                    {% for t20 in t_20 %}
-                    <div class="results row revealup fixture-strip--">
+                <div class="tab-content">
 
-                    <div class="results-result col-md-8 col-sm-12 col-xs-12 col-sm-12">
-                        <div class="results-result--info">
-                            <div class="results-result--date">
-                                <time datetime="2018-03-29T10:00:00Z">{{t20.date}}</time>
-                                - <time datetime="2018-03-29T11:00:00Z">{{t20.time}}</time>
+                    {% for fixture_type in fixture_types %}
+                        <div id="{{ fixture_type.title }}" class="tab-pane fade ">
+                            {% for t20 in fixture_type.fixture_set.all %}
+                                <div class="results row revealup fixture-strip--">
 
-                            </div>
-                            <div class="results-result--text">
-                                <span>{{t20.fixture_type}}</span>
-                                <span>- The 1st Central County Ground</span>
-                            </div>
+                                    <div class="results-result col-md-8 col-sm-12 col-xs-12 col-sm-12">
+                                        <div class="results-result--info">
+                                            <div class="results-result--date">
+                                                <time datetime="2018-03-29T10:00:00Z">{{ t20.date }}</time>
+                                                -
+                                                <time datetime="2018-03-29T11:00:00Z">{{ t20.time }}</time>
+
+                                            </div>
+                                            <div class="results-result--text">
+                                                <span>{{ t20.fixture_type }}</span>
+                                                <span>- {{ t20.venue }}</span>
+                                            </div>
+                                        </div>
+                                        <div class="results-result--team">
+                                            <div class="results-result--team-logo">
+                                                <div style="float:left"><img
+                                                        src="{% static 'images/transparent logo.png' %}"
+                                                        alt="My image"/>
+                                                    <span>{{ t20.team1.name }}</span>
+                                                    <span>VS</span>
+                                                </div>
+
+                                                <div style="float:left">
+                                                    <img src="{% static 'images/hampshire_t20_2018_0.png' %}"
+                                                         alt="My image"/>
+                                                    <span>{{ t20.team1.name }}</span>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                    <div class="results-result col-md-4 col-sm-12 col-xs-12 col-sm-12">
+                                        <img src="{% static 'images/transparent logo.png' %}" alt="My image"/>
+                                    </div>
+
+                                </div>
+                            {% endfor %}
                         </div>
-                        <div class="results-result--team">
-                            <div class="results-result--team-logo">
-                                <div style="float:left"><img src="{% static 'images/transparent logo.png' %}" alt="My image"/>
-                                <span>{{t20.team1.name}}</span>
-                                <span>VS</span>
+                    {% endfor %}
+
+
+                    <div id="menu3" class="tab-pane fade in active">
+                        {% for fixture in fixtures %}
+                            <div class="results row revealup fixture-strip--">
+
+                                <div class="results-result col-md-8 col-sm-12 col-xs-12 col-sm-12">
+                                    <div class="results-result--info">
+                                        <div class="results-result--date">
+                                            <time datetime="2018-03-29T10:00:00Z">{{ fixture.date }}</time>
+                                            -
+                                            <time datetime="2018-03-29T11:00:00Z">{{ fixture.time }}</time>
+
+                                        </div>
+                                        <div class="results-result--text">
+                                            <span>{{ fixture.fixture_type }}</span>
+                                            <span>- {{ fixture.venue }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="results-result--team">
+                                        <div class="results-result--team-logo">
+                                            <div style="float:left"><img
+                                                    src="{% static 'images/transparent logo.png' %}" alt="My image"/>
+                                                <span>{{ fixture.team1.name }}</span>
+                                                <span>VS</span>
+                                            </div>
+
+                                            <div style="float:left">
+                                                <img src="{% static 'images/hampshire_t20_2018_0.png' %}"
+                                                     alt="My image"/>
+                                                <span>{{ fixture.team1.name }}</span>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                                <div class="results-result col-md-4 col-sm-12 col-xs-12 col-sm-12">
+                                    <img src="{% static 'images/transparent logo.png' %}" alt="My image"/>
                                 </div>
 
-                                <div style="float:left">
-                                <img src="{% static 'images/hampshire_t20_2018_0.png' %}" alt="My image"/>
-                                <span>{{t20.team1.name}}</span>
-                                </div>
                             </div>
-
-
-                        </div>
+                        {% endfor %}
                     </div>
-                    <div class="results-result col-md-4 col-sm-12 col-xs-12 col-sm-12">
-                        <img src="{% static 'images/transparent logo.png' %}" alt="My image"/>
-                    </div>
-
-                </div>
-                {% endfor %}
-                </div>
-                <div id="menu1" class="tab-pane fade">
-                  {% for oneday in Oneday %}
-                    <div class="results row revealup fixture-strip--">
-
-                    <div class="results-result col-md-8 col-sm-12 col-xs-12 col-sm-12">
-                        <div class="results-result--info">
-                            <div class="results-result--date">
-                                <time datetime="2018-03-29T10:00:00Z">{{oneday.date}}</time>
-                                - <time datetime="2018-03-29T11:00:00Z">{{oneday.time}}</time>
-
-                            </div>
-                            <div class="results-result--text">
-                                <span>{{oneday.fixture_type}}</span>
-                                <span>- The 1st Central County Ground</span>
-                            </div>
-                        </div>
-                        <div class="results-result--team">
-                            <div class="results-result--team-logo">
-                                <div style="float:left"><img src="{% static 'images/transparent logo.png' %}" alt="My image"/>
-                                <span style="font-weight: bold;">{{oneday.team1.name}}</span>
-                                <span style="font-weight: bold;">VS</span>
-                                </div>
-
-                                <div style="float:left">
-                                <img src="{% static 'images/hampshire_t20_2018_0.png' %}" alt="My image"/>
-                                <span>{{oneday.team1.name}}</span>
-                                </div>
-                            </div>
-
-
-                        </div>
-                    </div>
-                    <div class="results-result col-md-4 col-sm-12 col-xs-12 col-sm-12">
-                        <img src="{% static 'images/transparent logo.png' %}" alt="My image"/>
-                    </div>
-
-                </div>
-                {% endfor %}
-                </div>
-                <div id="menu2" class="tab-pane fade">
-                    {% for test in Test %}
-                    <div class="results row revealup fixture-strip--">
-
-                    <div class="results-result col-md-8 col-sm-12 col-xs-12 col-sm-12">
-                        <div class="results-result--info">
-                            <div class="results-result--date">
-                                <time datetime="2018-03-29T10:00:00Z">{{test.date}}</time>
-                                - <time datetime="2018-03-29T11:00:00Z">{{test.time}}</time>
-
-                            </div>
-                            <div class="results-result--text">
-                                <span>{{test.fixture_type}}</span>
-                                <span>- The 1st Central County Ground</span>
-                            </div>
-                        </div>
-                        <div class="results-result--team">
-                            <div class="results-result--team-logo">
-                                <div style="float:left"><img src="{% static 'images/transparent logo.png' %}" alt="My image"/>
-                                <span>{{test.team1.name}}</span>
-                                <span>VS</span>
-                                </div>
-
-                                <div style="float:left">
-                                <img src="{% static 'images/hampshire_t20_2018_0.png' %}" alt="My image"/>
-                                <span>{{test.team1.name}}</span>
-                                </div>
-                            </div>
-
-
-                        </div>
-                    </div>
-                    <div class="results-result col-md-4 col-sm-12 col-xs-12 col-sm-12">
-                        <img src="{% static 'images/transparent logo.png' %}" alt="My image"/>
-                    </div>
-
-                </div>
-                {% endfor %}
-                </div>
-                <div id="menu3" class="tab-pane fade in active">
-                                {% for fixture in fixtures %}
-            <div class="results row revealup fixture-strip--">
-
-            <div class="results-result col-md-8 col-sm-12 col-xs-12 col-sm-12">
-                <div class="results-result--info">
-                    <div class="results-result--date">
-                        <time datetime="2018-03-29T10:00:00Z">{{fixture.date}}</time>
-                        - <time datetime="2018-03-29T11:00:00Z">{{fixture.time}}</time>
-
-                    </div>
-                    <div class="results-result--text">
-                        <span>{{fixture.fixture_type}}</span>
-                        <span>- The 1st Central County Ground</span>
-                    </div>
-                </div>
-                <div class="results-result--team">
-                    <div class="results-result--team-logo">
-                        <div style="float:left"><img src="{% static 'images/transparent logo.png' %}" alt="My image"/>
-                        <span>{{fixture.team1.name}}</span>
-                        <span>VS</span>
-                        </div>
-
-                        <div style="float:left">
-                        <img src="{% static 'images/hampshire_t20_2018_0.png' %}" alt="My image"/>
-                        <span>{{fixture.team1.name}}</span>
-                        </div>
-                    </div>
-
-
                 </div>
             </div>
-            <div class="results-result col-md-4 col-sm-12 col-xs-12 col-sm-12">
-                <img src="{% static 'images/transparent logo.png' %}" alt="My image"/>
-            </div>
+
 
         </div>
-        {% endfor %}
-                </div>
-              </div>
-            </div>
 
 
-
-
-    </div>
-
-
-
-</section>
+    </section>
 
 
 {% endblock content %}

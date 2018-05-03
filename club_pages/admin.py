@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import Player, Club, Team, Tournament, Fixture, LatestNews, SliderImages, TopCategory, PlayerType, \
-    DynamicData, SocialLink, Sponser
+    DynamicData, SocialLink, Sponser, FixtureType
 
 
 class SponserAdmin(admin.ModelAdmin):
@@ -59,6 +59,7 @@ admin.site.register(Tournament, TournamentAdmin)
 admin.site.register(Fixture, FixtureAdmin)
 admin.site.register(LatestNews, LatestNewsAdmin)
 admin.site.register(SliderImages)
+admin.site.register(FixtureType)
 admin.site.register(TopCategory, TopCategoryAdmin)
 admin.site.register(DynamicData, DynamicDataAdmin)
 admin.site.register(Sponser, SponserAdmin)

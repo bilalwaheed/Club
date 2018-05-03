@@ -96,7 +96,7 @@ class Fixture(models.Model):
     team2 = models.CharField(max_length=250)
     venue = models.CharField(max_length=250)
     tournament = models.ForeignKey(Tournament, on_delete=models.CASCADE)
-    fixture_type = models.CharField(max_length=250, choices=FIXTURE_TYPE, default=T20)
+    fixture_type = models.ForeignKey('FixtureType', null=True, blank=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return str(self.id)
@@ -171,3 +171,10 @@ class Sponser(models.Model):
 
     def __str__(self):
         return str(self.id)
+
+
+class FixtureType(models.Model):
+    title = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.title

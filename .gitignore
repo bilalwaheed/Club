@@ -99,3 +99,18 @@ ENV/
 
 # mypy
 .mypy_cache/
+.idea/Club.iml
+db.sqlite3
+dump.rdb
+.idea/encodings.xml
+.idea/markdown-navigator.xml
+.idea/misc.xml
+.idea/workspace.xml
+.idea/markdown-navigator/profiles_settings.xml
+media/Players/s_0vMgH20.jpg
+media/Players/s_64Wvm8e.jpg
+media/Players/s_8rNtkee.jpg
+media/Players/s_FhOZKvG.jpg
+.idea/misc.xml
+db.sqlite3
+.idea/Club.iml
